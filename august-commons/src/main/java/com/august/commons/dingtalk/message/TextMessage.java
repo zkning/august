@@ -1,4 +1,4 @@
-package com.august.commons.dingtalk;
+package com.august.commons.dingtalk.message;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
@@ -7,9 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author
- */
+
+
 public class TextMessage implements Message {
 
     private String text;
@@ -17,12 +16,6 @@ public class TextMessage implements Message {
     private boolean isAtAll;
 
     public TextMessage(String text) {
-        this.text = text;
-    }
-
-    public TextMessage(String text, List<String> atMobiles, boolean isAtAll) {
-        this.atMobiles = atMobiles;
-        this.isAtAll = isAtAll;
         this.text = text;
     }
 
@@ -50,18 +43,19 @@ public class TextMessage implements Message {
         this.isAtAll = isAtAll;
     }
 
+    @Override
     public String toJsonString() {
-        Map<String, Object> items = new HashMap<String, Object>(5);
+        Map<String, Object> items = new HashMap<String, Object>();
         items.put("msgtype", "text");
 
-        Map<String, String> textContent = new HashMap<String, String>(5);
+        Map<String, String> textContent = new HashMap<String, String>();
         if (StringUtils.isBlank(text)) {
             throw new IllegalArgumentException("text should not be blank");
         }
         textContent.put("content", text);
         items.put("text", textContent);
 
-        Map<String, Object> atItems = new HashMap<String, Object>(5);
+        Map<String, Object> atItems = new HashMap<String, Object>();
         if (atMobiles != null && !atMobiles.isEmpty()) {
             atItems.put("atMobiles", atMobiles);
         }
