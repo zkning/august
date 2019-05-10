@@ -27,5 +27,6 @@
 
     <modules>
         <module>august-commons</module>
+        <module>august-redisson-springboot-starter</module>
     </modules>
 </project>
