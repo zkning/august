@@ -28,5 +28,7 @@
     <modules>
         <module>august-commons</module>
         <module>august-redisson-springboot-starter</module>
+        <module>august-springboot-parent</module>
+        <module>august-springboot-web-starter</module>
     </modules>
 </project>

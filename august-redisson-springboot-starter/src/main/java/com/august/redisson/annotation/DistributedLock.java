@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public @interface DistributedLock {
     public static final long LEASETIME = 1000L * 60 * 5;
     public static final long WAITTIME = 1;
+    public static final TimeUnit TIME_UNIT = TimeUnit.MILLISECONDS;
 
     // 连接符
     public static final String SEPARATOR = "::";

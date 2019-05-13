@@ -30,7 +30,7 @@ public class RedissonLockTemplate implements RedissonDistributedLock {
 
     @Override
     public <T> T lock(String key, DistributedLockCallback<T> callback, boolean fairLock) {
-        return lock(key, callback, DistributedLock.WAITTIME, DistributedLock.LEASETIME, TimeUnit.SECONDS, fairLock);
+        return lock(key, callback, DistributedLock.WAITTIME, DistributedLock.LEASETIME, DistributedLock.TIME_UNIT, fairLock);
     }
 
     @Override
