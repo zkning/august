@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TraceAspect {
 
-    @Value("${dingtalk:#{null}}")
+    @Value("${dingtalk.enabled:#{null}}")
     private String dingtalk;
 
     @Around(value = "@annotation(trace)")

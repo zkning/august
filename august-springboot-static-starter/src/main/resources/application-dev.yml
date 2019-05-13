@@ -1,0 +1,12 @@
+logging:
+  level:
+    org.springframework.web: INFO
+  path: /www/wwwlogs/august
+  file: ${server.context-path}.${server.port}
+
+# swagger
+swagger.enabled: false
+
+# dingtalk
+dingtalk.webhook: https://oapi.dingtalk.com/robot/send?access_token=fe7a769d64e706009b839f64d112a44c66c7f97df8dd05bd6edbee3bd9ab94a7
+dingtalk.enabled: false
