@@ -1,7 +1,7 @@
 package com.august.thymelef.configure;
 
-import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor;
+import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

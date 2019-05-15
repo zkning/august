@@ -1,4 +1,4 @@
-package com.august.thymelef.utils;
+package com.august.website.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

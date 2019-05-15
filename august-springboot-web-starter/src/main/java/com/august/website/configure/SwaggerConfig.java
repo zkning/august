@@ -1,4 +1,4 @@
-package com.august.thymelef.configure;
+package com.august.website.configure;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;

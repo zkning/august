@@ -1,7 +1,7 @@
-package com.august.thymelef.utils;
+package com.august.website.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.august.thymelef.consts.StatusCodeEnum;
+import com.august.website.consts.StatusCodeEnum;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
@@ -17,23 +17,23 @@ public class Resp<T> implements Serializable {
     private Integer code;
 
     @ApiModelProperty(value = "响应消息")
-    private String message;
+    private String msg;
 
     @ApiModelProperty(value = "响应结果")
-    private T result;
+    private T data;
 
     public Resp() {
     }
 
-    public Resp(Integer code, String message) {
+    public Resp(Integer code, String msg) {
         this.code = code;
-        this.message = message;
+        this.msg = msg;
     }
 
-    public Resp(Integer code, String message, T result) {
+    public Resp(Integer code, String msg, T data) {
         this.code = code;
-        this.message = message;
-        this.result = result;
+        this.msg = msg;
+        this.data = data;
     }
 
 
@@ -85,20 +85,20 @@ public class Resp<T> implements Serializable {
         this.code = code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public T getResult() {
-        return result;
+    public T getData() {
+        return data;
     }
 
-    public void setResult(T result) {
-        this.result = result;
+    public void setData(T data) {
+        this.data = data;
     }
 
     /**

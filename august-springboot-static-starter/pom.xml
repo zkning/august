@@ -57,8 +57,14 @@
 
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.0.6</version>
+            <artifactId>mybatisplus-spring-boot-starter</artifactId>
+            <version>1.0.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>2.2.0</version>
         </dependency>
 
         <dependency>
@@ -74,14 +80,6 @@
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>application*.yml</exclude>
-                </excludes>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -124,10 +122,10 @@
                         <!--<superServiceClass>com.baomidou.base.BaseService</superServiceClass>-->
                         <!-- 要包含的表 与exclude 二选一配置-->
                         <include>
-                            <property>t_user</property>
-                            <property>t_setting</property>
+                            <!--<property>t_user</property>-->
+                            <!--<property>t_setting</property>-->
+                            <!--<property>t_menu</property>-->
                             <property>t_message</property>
-                            <property>t_menu</property>
                         </include>
                         <!-- 要排除的表 -->
                         <!--<exclude>-->

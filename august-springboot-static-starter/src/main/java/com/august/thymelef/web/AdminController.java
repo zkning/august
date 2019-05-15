@@ -2,11 +2,9 @@ package com.august.thymelef.web;
 
 import com.alibaba.fastjson.JSON;
 import com.august.thymelef.domain.Menu;
-import com.august.thymelef.utils.Resp;
-import com.august.thymelef.utils.RandomValidateCodeUtil;
+import com.august.website.utils.RandomValidateCodeUtil;
+import com.august.website.utils.Resp;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +19,6 @@ import java.util.List;
 @Slf4j
 @Controller
 public class AdminController {
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping({"/index"})
     String index(Model model) {
@@ -69,7 +66,7 @@ public class AdminController {
             RandomValidateCodeUtil randomValidateCode = new RandomValidateCodeUtil();
             randomValidateCode.getRandcode(request, response);//输出验证码图片方法
         } catch (Exception e) {
-            logger.error("获取验证码失败>>>> ", e);
+            log.error("获取验证码失败>>>> ", e);
         }
     }
 
@@ -116,8 +113,8 @@ public class AdminController {
         return "user/main";
     }
 
-    @GetMapping("/info")
-    String info() {
+    @GetMapping("/setting")
+    String setting() {
         return "set/user/info";
     }
 
@@ -129,18 +126,6 @@ public class AdminController {
     @GetMapping("/search")
     String search() {
         return "template/search";
-    }
-
-    @GetMapping("/message")
-    String message() {
-        return "app/message/index";
-    }
-
-
-    @GetMapping("/messageDetail")
-    String messageDetail(String id) {
-        log.info("message id :{}", id);
-        return "app/message/detail";
     }
 
     @GetMapping("/website")

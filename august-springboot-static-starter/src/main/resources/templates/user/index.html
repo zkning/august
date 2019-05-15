@@ -40,7 +40,7 @@
             <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
 
                 <li class="layui-nav-item" lay-unselect>
-                    <a lay-href="message" layadmin-event="message" lay-text="消息中心">
+                    <a lay-href="message/index" layadmin-event="message" lay-text="消息中心">
                         <i class="layui-icon layui-icon-notice"></i>
 
                         <!-- 如果有新消息，则显示小圆点 -->
@@ -67,7 +67,7 @@
                         <cite th:text="${name}"></cite>
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a lay-href="info">基本资料</a></dd>
+                        <dd><a lay-href="setting">基本资料</a></dd>
                         <dd><a lay-href="password">修改密码</a></dd>
                         <hr>
                         <dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>

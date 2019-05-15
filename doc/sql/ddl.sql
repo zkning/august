@@ -4,6 +4,7 @@ CREATE TABLE `t_message` (
   `content` varchar(500) DEFAULT NULL COMMENT '内容',
   `type` tinyint(4) DEFAULT NULL COMMENT '1=通知，2=私信',
   `state` tinyint(4) DEFAULT NULL COMMENT '0=未读，1=已读',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '用户id',
   `create_time` datetime DEFAULT NULL,
   `last_update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)

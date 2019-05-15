@@ -4,7 +4,7 @@
  @Author：贤心
  @Site：http://www.layui.com/admin/
  @License：LPPL
-    
+
  */
 
 
@@ -13,9 +13,9 @@ layui.define(['admin', 'table', 'util'], function(exports){
   ,admin = layui.admin
   ,table = layui.table
   ,element = layui.element;
-  
+
   var DISABLED = 'layui-btn-disabled'
-  
+
   //区分各选项卡中的表格
   ,tabs = {
     all: {
@@ -31,25 +31,34 @@ layui.define(['admin', 'table', 'util'], function(exports){
       ,id: 'LAY-app-message-direct'
     }
   };
-  
+
   //标题内容模板
   var tplTitle = function(d){
     return '<a href="messageDetail?id='+ d.id +'">'+ d.title;
   };
-  
+
   //全部消息
   table.render({
     elem: '#LAY-app-message-all'
-    ,url: layui.setter.base + 'json/message/all.js' //模拟接口
+    // ,url: layui.setter.base + 'json/message/all.js' //模拟接口
+    ,url: layui.setter.base + 'message/all' //模拟接口
     ,page: true
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
       ,{field: 'title', title: '标题内容', minWidth: 300, templet: tplTitle}
-      ,{field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>'}
+      ,{field: 'createTime', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.createTime) }}</div>'}
     ]]
     ,skin: 'line'
+    ,parseData: function(res){ //res 即为原始返回的数据
+          return {
+              "code": res.code, //解析接口状态
+              "msg": res.msg, //解析提示文本
+              "count": res.data.totalElements, //解析数据长度
+              "data": res.data.content //解析数据列表
+          };
+      }
   });
-  
+
   //通知
   table.render({
     elem: '#LAY-app-message-notice'
@@ -62,7 +71,7 @@ layui.define(['admin', 'table', 'util'], function(exports){
     ]]
     ,skin: 'line'
   });
-  
+
   //私信
   table.render({
     elem: '#LAY-app-message-direct'
@@ -75,8 +84,8 @@ layui.define(['admin', 'table', 'util'], function(exports){
     ]]
     ,skin: 'line'
   });
-  
-  
+
+
   //事件处理
   var events = {
     del: function(othis, type){
@@ -103,7 +112,7 @@ layui.define(['admin', 'table', 'util'], function(exports){
       ,checkStatus = table.checkStatus(thisTabs.id)
       ,data = checkStatus.data; //获得选中的数据
       if(data.length === 0) return layer.msg('未选中行');
-      
+
       //此处只是演示
       layer.msg('标记已读成功', {
         icon: 1
@@ -112,21 +121,21 @@ layui.define(['admin', 'table', 'util'], function(exports){
     }
     ,readyAll: function(othis, type){
       var thisTabs = tabs[type];
-      
+
       //do somethin
-      
+
       layer.msg(thisTabs.text + '：全部已读', {
         icon: 1
       });
     }
   };
-  
+
   $('.LAY-app-message-btns .layui-btn').on('click', function(){
     var othis = $(this)
     ,thisEvent = othis.data('events')
     ,type = othis.data('type');
     events[thisEvent] && events[thisEvent].call(this, othis, type);
   });
-  
+
   exports('message', {});
 });
