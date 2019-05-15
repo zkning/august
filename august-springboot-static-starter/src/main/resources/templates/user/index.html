@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Main</title>
+    <title>Admin template</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -22,11 +22,11 @@
                         <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
                     </a>
                 </li>
-                <!--<li class="layui-nav-item layui-hide-xs" lay-unselect>-->
-                    <!--<a href="http://www.layui.com/admin/" target="_blank" title="前台">-->
-                        <!--<i class="layui-icon layui-icon-website"></i>-->
-                    <!--</a>-->
-                <!--</li>-->
+                <li class="layui-nav-item layui-hide-xs" lay-unselect>
+                    <a href="http://www.baidu.com" target="_blank" title="website">
+                        <i class="layui-icon layui-icon-website"></i>
+                    </a>
+                </li>
                 <li class="layui-nav-item" lay-unselect>
                     <a href="javascript:;" layadmin-event="refresh" title="刷新">
                         <i class="layui-icon layui-icon-refresh-3"></i>
@@ -94,28 +94,22 @@
                 <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu"
                     lay-filter="layadmin-system-side-menu">
                     <li data-name="home" class="layui-nav-item layui-nav-itemed">
-                        <a href="javascript:;" lay-tips="主页" lay-direction="2">
+                        <a lay-href="main" lay-tips="主页" lay-direction="2">
                             <i class="layui-icon layui-icon-home"></i>
                             <cite>主页</cite>
                         </a>
-                        <dl class="layui-nav-child">
-                            <dd data-name="console" class="layui-this">
-                                <a lay-href="main">控制台</a>
-                            </dd>
-                            <!--<dd data-name="console">-->
-                                <!--<a lay-href="home/homepage1.html">主页一</a>-->
-                            <!--</dd>-->
-                            <!--<dd data-name="console">-->
-                                <!--<a lay-href="home/homepage2.html">主页二</a>-->
-                            <!--</dd>-->
-                        </dl>
+                        <!--<dl class="layui-nav-child">-->
+                        <!--<dd data-name="console" class="layui-this">-->
+                        <!--<a lay-href="main">控制台</a>-->
+                        <!--</dd>-->
+                        <!--</dl>-->
                     </li>
 
                     <!--menu list-->
                     <li data-name="set" class="layui-nav-item" th:each="menu : ${menus}">
 
                         <!--first menu-->
-                        <a href="javascript:;" th:attr="lay-tips=#{menu.name}" lay-direction="2">
+                        <a href="javascript:;" th:attr="lay-tips=${menu.name}" lay-direction="2">
                             <i th:class="${menu.icon}"></i>
                             <cite th:text="${menu.name}">first level</cite>
                         </a>
@@ -125,7 +119,8 @@
                             <dd class="layui-nav-itemed" th:each="s : ${menu.child}">
 
                                 <!---->
-                                <a th:text="${s.name}" th:if="${not #lists.isEmpty(s.child)}" href="javascript:;">second level</a>
+                                <a th:text="${s.name}" th:if="${not #lists.isEmpty(s.child)}" href="javascript:;">second
+                                    level</a>
                                 <a th:text="${s.name}" th:if="${#lists.isEmpty(s.child)}"
                                    th:attr="lay-href=${s.url}">second level</a>
 

@@ -1,8 +1,8 @@
 package com.august.thymelef.web;
 
 import com.alibaba.fastjson.JSON;
-import com.august.thymelef.domain.MenuDO;
-import com.august.thymelef.dto.R;
+import com.august.thymelef.domain.Menu;
+import com.august.thymelef.utils.Resp;
 import com.august.thymelef.utils.RandomValidateCodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -25,26 +25,26 @@ public class AdminController {
 
     @GetMapping({"/index"})
     String index(Model model) {
-        List<MenuDO> fl = new ArrayList<>();
-        MenuDO f = new MenuDO();
+        List<Menu> fl = new ArrayList<>();
+        Menu f = new Menu();
         fl.add(f);
         f.setName("一级");
         f.setUrl("http://www.baidu.com");
         f.setIcon("layui-icon layui-icon-component");
 
         // 二级
-        List<MenuDO> sl = new ArrayList<>();
+        List<Menu> sl = new ArrayList<>();
         f.setChild(sl);
-        MenuDO sm = new MenuDO();
+        Menu sm = new Menu();
         sl.add(sm);
         sm.setName("二级");
         sm.setUrl("http://www.baidu.com");
         sm.setIcon("");
 
         // 三级
-        List<MenuDO> tl = new ArrayList<>();
+        List<Menu> tl = new ArrayList<>();
         sm.setChild(tl);
-        MenuDO tm = new MenuDO();
+        Menu tm = new Menu();
         tl.add(tm);
         tm.setName("三级");
         tm.setUrl("http://www.baidu.com");
@@ -82,7 +82,7 @@ public class AdminController {
 
     @PostMapping("/login")
     @ResponseBody
-    R ajaxLogin(String username, String password, String verify, HttpServletRequest request) {
+    Resp ajaxLogin(String username, String password, String verify, HttpServletRequest request) {
 
 //        try {
         //从session中获取随机数
@@ -102,7 +102,7 @@ public class AdminController {
 //        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 //        Subject subject = SecurityUtils.getSubject();
 //        subject.login(token);
-        return R.ok();
+        return Resp.SUCCESS();
     }
 
     @GetMapping("/logout")
@@ -136,8 +136,15 @@ public class AdminController {
         return "app/message/index";
     }
 
-    @GetMapping("/ex")
-    void ex() {
-       throw new RuntimeException("ex...");
+
+    @GetMapping("/messageDetail")
+    String messageDetail(String id) {
+        log.info("message id :{}", id);
+        return "app/message/detail";
+    }
+
+    @GetMapping("/website")
+    String website() {
+        return "set/system/website";
     }
 }
