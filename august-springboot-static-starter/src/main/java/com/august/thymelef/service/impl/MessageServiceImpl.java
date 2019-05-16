@@ -43,8 +43,8 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
     }
 
     @Override
-    public Integer readyAll(Long userId) {
-        int c = baseMapper.readyAll(userId);
+    public Integer readyAll(Long userId, Integer type) {
+        int c = baseMapper.readyAll(userId, type);
         return c;
     }
 

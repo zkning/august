@@ -72,22 +72,24 @@ public class MessageController {
     @ResponseBody
     Resp ready(@RequestBody List<Long> ids) {
         Integer ret = iMessageService.ready(ids);
-
-        // 查询未读数据
-        List<Message> msgList = iMessageService.list(1L, 1);
-        Integer count = CollectionUtils.isNotEmpty(msgList) ? msgList.size() : 0;
-        return Resp.SUCCESS(count);
+        return Resp.SUCCESS(ret);
     }
 
     @PostMapping("/readyAll")
     @ResponseBody
-    Resp readyAll() {
-        Integer ret = iMessageService.readyAll(1L);
-
-        // 查询未读数据
-        List<Message> msgList = iMessageService.list(1L, 1);
-        Integer count = CollectionUtils.isNotEmpty(msgList) ? msgList.size() : 0;
-        return Resp.SUCCESS(count);
+    Resp readyAll(@RequestBody String type) {
+        Integer t = null;
+        if ("LAY-app-message-all".equals(type)) {
+            t = null;
+        } else if ("LAY-app-message-notice".equals(type)) {
+            t = 1;
+        } else if ("LAY-app-message-direct".equals(type)) {
+            t = 2;
+        } else {
+            return Resp.FAILURE("参数错误！");
+        }
+        Integer ret = iMessageService.readyAll(1L, t);
+        return Resp.SUCCESS(ret);
     }
 
     @PostMapping("/unReady")

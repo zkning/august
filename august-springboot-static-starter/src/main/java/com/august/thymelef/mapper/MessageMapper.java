@@ -20,8 +20,8 @@ import java.util.List;
 public interface MessageMapper extends BaseMapper<Message> {
 
     /**
-     * 类型不为空则查询未读消息
-     */
+     * 查询用户消息
+     * */
     List<Message> list(Page page, @Param("userId") Long userId, @Param("type") Integer type);
 
     /**
@@ -31,7 +31,7 @@ public interface MessageMapper extends BaseMapper<Message> {
 
     int ready(@Param("ids") List<Long> ids);
 
-    int readyAll(@Param("userId") Long userId);
+    int readyAll(@Param("userId") Long userId, @Param("type") Integer type);
 
     List<Message> selectByUserIdAndState(@Param("userId") Long userId, @Param("state") Integer state);
 }

@@ -36,6 +36,9 @@
         state = 1
         where
         user_id = #{userId}
+        <if test="type != null">
+            and type = #{type}
+        </if>
     </update>
 
     <select id="list" resultType="com.august.thymelef.domain.Message">
@@ -45,7 +48,6 @@
         user_id = #{userId}
         <if test="type != null">
             AND type = #{type}
-            AND state = 0
         </if>
         order by create_time desc
     </select>

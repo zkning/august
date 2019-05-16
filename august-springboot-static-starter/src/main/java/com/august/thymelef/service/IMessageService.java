@@ -22,7 +22,7 @@ public interface IMessageService extends IService<Message> {
 
     Integer ready(List<Long> ids);
 
-    Integer readyAll(Long userId);
+    Integer readyAll(Long userId, Integer type);
 
     List<Message> unReady(Long userId, Integer state);
 }

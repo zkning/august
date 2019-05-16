@@ -64,6 +64,9 @@ layui.define(['admin', 'table', 'util'], function(exports){
     ]]
     ,skin: 'line'
     ,where: {'type': 1}
+    ,done: function(res, curr, count){
+        $("#LAY-app-unready").text(count);
+    }
   });
 
   //私信
@@ -100,7 +103,7 @@ layui.define(['admin', 'table', 'util'], function(exports){
             type: 'post',
             data: JSON.stringify(ids),
             contentType:'application/json;charset=utf-8',
-            success: function(){ //请求接口
+            done: function(res, curr, count){
               layer.msg('删除成功', {
                 icon: 1
               });
@@ -122,12 +125,11 @@ layui.define(['admin', 'table', 'util'], function(exports){
           type: 'post',
           data: JSON.stringify(ids),
           contentType:'application/json;charset=utf-8',
-          success: function(res){ //请求接口
+          done: function(res, curr, count){
               layer.msg('标记已读成功', {
                   icon: 1
               });
               table.reload(thisTabs.id); //刷新表格
-              $("#LAY-app-unready").text(res.data);
           }});
     }
     ,readyAll: function(othis, type){
@@ -136,13 +138,14 @@ layui.define(['admin', 'table', 'util'], function(exports){
       //do somethin
       admin.req({url: 'readyAll',
           type: 'post',
-          success: function(){ //请求接口
+          contentType:'application/json;charset=utf-8',
+          data: thisTabs.id,
+          done: function(res, curr, count){
               layer.msg(thisTabs.text + '：全部已读', {
                   icon: 1
               });
               table.reload(thisTabs.id); //刷新表格
-              $("#LAY-app-unready").text(res.data);
-          }});
+      }});
     }
   };
 
