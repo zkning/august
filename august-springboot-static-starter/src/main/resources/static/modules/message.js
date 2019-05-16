@@ -140,7 +140,8 @@ layui.define(['admin', 'table', 'util'], function(exports){
               layer.msg(thisTabs.text + '：全部已读', {
                   icon: 1
               });
-
+              table.reload(thisTabs.id); //刷新表格
+              $("#LAY-app-unready").text(res.data);
           }});
     }
   };

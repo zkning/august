@@ -83,7 +83,11 @@ public class MessageController {
     @ResponseBody
     Resp readyAll() {
         Integer ret = iMessageService.readyAll(1L);
-        return Resp.SUCCESS(ret);
+
+        // 查询未读数据
+        List<Message> msgList = iMessageService.list(1L, 1);
+        Integer count = CollectionUtils.isNotEmpty(msgList) ? msgList.size() : 0;
+        return Resp.SUCCESS(count);
     }
 
     @PostMapping("/unReady")
