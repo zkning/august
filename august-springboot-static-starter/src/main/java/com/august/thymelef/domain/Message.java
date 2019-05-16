@@ -16,6 +16,7 @@ import java.util.Date;
  * @since 2019-05-15
  */
 @Data
+@TableName("t_message")
 public class Message implements Serializable {
 
     private static final long serialVersionUID = 1L;

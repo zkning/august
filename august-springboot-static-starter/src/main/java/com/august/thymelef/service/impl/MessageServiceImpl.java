@@ -29,4 +29,27 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
         pager.setTotalElements(page.getTotal());
         return list;
     }
+
+    @Override
+    public List<Message> list(Long userId, Integer type) {
+        List<Message> list = baseMapper.selectByUserIdAndType(userId, type);
+        return list;
+    }
+
+    @Override
+    public Integer ready(List<Long> ids) {
+        int c = baseMapper.ready(ids);
+        return c;
+    }
+
+    @Override
+    public Integer readyAll(Long userId) {
+        int c = baseMapper.readyAll(userId);
+        return c;
+    }
+
+    @Override
+    public List<Message> unReady(Long userId, Integer state) {
+        return baseMapper.selectByUserIdAndState(userId, state);
+    }
 }

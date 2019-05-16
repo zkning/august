@@ -8,7 +8,9 @@
         <div class="layui-tab layui-tab-brief">
             <ul class="layui-tab-title">
                 <li class="layui-this">全部消息</li>
-                <li>通知<span class="layui-badge">6</span></li>
+                <li>通知
+                    <span class="layui-badge" th:text="${count}" id="LAY-app-unready"></span>
+                </li>
                 <li>私信</li>
             </ul>
             <div class="layui-tab-content">

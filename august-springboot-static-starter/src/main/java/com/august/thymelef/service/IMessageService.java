@@ -16,6 +16,13 @@ import java.util.List;
  */
 public interface IMessageService extends IService<Message> {
 
-
     List<Message> list(Pager pager, Long userId, Integer type);
+
+    List<Message> list(Long userId, Integer type);
+
+    Integer ready(List<Long> ids);
+
+    Integer readyAll(Long userId);
+
+    List<Message> unReady(Long userId, Integer state);
 }

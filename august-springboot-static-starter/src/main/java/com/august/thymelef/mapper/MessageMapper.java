@@ -19,7 +19,19 @@ import java.util.List;
 @Mapper
 public interface MessageMapper extends BaseMapper<Message> {
 
-
+    /**
+     * 类型不为空则查询未读消息
+     */
     List<Message> list(Page page, @Param("userId") Long userId, @Param("type") Integer type);
 
+    /**
+     * 未读的列表
+     */
+    List<Message> selectByUserIdAndType(@Param("userId") Long userId, @Param("type") Integer type);
+
+    int ready(@Param("ids") List<Long> ids);
+
+    int readyAll(@Param("userId") Long userId);
+
+    List<Message> selectByUserIdAndState(@Param("userId") Long userId, @Param("state") Integer state);
 }

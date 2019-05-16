@@ -5,7 +5,7 @@
 
 <div class="layui-fluid" id="LAY-app-message-detail">
     <div class="layui-card layuiAdmin-msg-detail">
-        <script type="text/html" template lay-url="{{ layui.setter.base }}json/message/detail.js?id={{ layui.router().search.id }}">
+        <script type="text/html" template th:attr="lay-url='selectById?id=' + ${id}">
             <div class="layui-card-header">
                 <h1>{{ d.data.title }}</h1>
                 <p>
@@ -29,7 +29,7 @@
 <div th:include="template/include :: footer"></div>
 <script>
     layui.config({
-        base: '' //静态资源所在路径
+        base: '../' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
     }).use(['index']);

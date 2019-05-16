@@ -34,7 +34,7 @@ layui.define(['admin', 'table', 'util'], function(exports){
 
   //标题内容模板
   var tplTitle = function(d){
-    return '<a href="messageDetail?id='+ d.id +'">'+ d.title;
+    return '<a href="detail?id='+ d.id +'">'+ d.title;
   };
 
   //全部消息
@@ -49,20 +49,13 @@ layui.define(['admin', 'table', 'util'], function(exports){
       ,{field: 'createTime', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.createTime) }}</div>'}
     ]]
     ,skin: 'line'
-    ,parseData: function(res){ //res 即为原始返回的数据
-          return {
-              "code": res.code, //解析接口状态
-              "msg": res.msg, //解析提示文本
-              "count": res.data.totalElements, //解析数据长度
-              "data": res.data.content //解析数据列表
-          };
-      }
   });
 
   //通知
   table.render({
     elem: '#LAY-app-message-notice'
-    ,url: layui.setter.base + 'json/message/notice.js' //模拟接口
+    // ,url: layui.setter.base + 'json/message/notice.js' //模拟接口
+    ,url: layui.setter.base + 'message/all' //模拟接口
     ,page: true
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
@@ -70,12 +63,14 @@ layui.define(['admin', 'table', 'util'], function(exports){
       ,{field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>'}
     ]]
     ,skin: 'line'
+    ,where: {'type': 1}
   });
 
   //私信
   table.render({
     elem: '#LAY-app-message-direct'
-    ,url: layui.setter.base + 'json/message/direct.js' //模拟接口
+    // ,url: layui.setter.base + 'json/message/direct.js' //模拟接口
+    ,url: layui.setter.base + 'message/all' //模拟接口
     ,page: true
     ,cols: [[
       {type: 'checkbox', fixed: 'left'}
@@ -83,6 +78,7 @@ layui.define(['admin', 'table', 'util'], function(exports){
       ,{field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>'}
     ]]
     ,skin: 'line'
+    ,where: {'type': 2}
   });
 
 
@@ -95,16 +91,21 @@ layui.define(['admin', 'table', 'util'], function(exports){
       if(data.length === 0) return layer.msg('未选中行');
 
       layer.confirm('确定删除选中的数据吗？', function(){
-        /*
-        admin.req('url', {}, function(){ //请求接口
-          //do somethin
-        });
-        */
-        //此处只是演示，实际应用需把下述代码放入上述Ajax回调中
-        layer.msg('删除成功', {
-          icon: 1
-        });
-        table.reload(thisTabs.id); //刷新表格
+
+        // do something
+        var ids = $.map(data, function (val, index) {
+            return val.id;
+        })
+        admin.req({url: 'del',
+            type: 'post',
+            data: JSON.stringify(ids),
+            contentType:'application/json;charset=utf-8',
+            success: function(){ //请求接口
+              layer.msg('删除成功', {
+                icon: 1
+              });
+              table.reload(thisTabs.id); //刷新表格
+        }});
       });
     }
     ,ready: function(othis, type){
@@ -113,20 +114,34 @@ layui.define(['admin', 'table', 'util'], function(exports){
       ,data = checkStatus.data; //获得选中的数据
       if(data.length === 0) return layer.msg('未选中行');
 
-      //此处只是演示
-      layer.msg('标记已读成功', {
-        icon: 1
-      });
-      table.reload(thisTabs.id); //刷新表格
+      //do somethin
+      var ids = $.map(data, function (val, index) {
+          return val.id;
+      })
+      admin.req({url: 'ready',
+          type: 'post',
+          data: JSON.stringify(ids),
+          contentType:'application/json;charset=utf-8',
+          success: function(res){ //请求接口
+              layer.msg('标记已读成功', {
+                  icon: 1
+              });
+              table.reload(thisTabs.id); //刷新表格
+              $("#LAY-app-unready").text(res.data);
+          }});
     }
     ,readyAll: function(othis, type){
       var thisTabs = tabs[type];
 
       //do somethin
+      admin.req({url: 'readyAll',
+          type: 'post',
+          success: function(){ //请求接口
+              layer.msg(thisTabs.text + '：全部已读', {
+                  icon: 1
+              });
 
-      layer.msg(thisTabs.text + '：全部已读', {
-        icon: 1
-      });
+          }});
     }
   };
 

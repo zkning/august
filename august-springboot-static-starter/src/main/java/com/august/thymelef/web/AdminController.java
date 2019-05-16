@@ -5,6 +5,7 @@ import com.august.thymelef.domain.Menu;
 import com.august.website.utils.RandomValidateCodeUtil;
 import com.august.website.utils.Resp;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,6 +51,10 @@ public class AdminController {
         model.addAttribute("menus", fl);
         model.addAttribute("name", "张三");
         log.info(JSON.toJSONString(model));
+
+//        List ret = iMessageService.unReady(1L, 0);
+//        return Resp.SUCCESS(CollectionUtils.isNotEmpty(ret) ? ret.size() : 0);
+
         return "user/index";
     }
 
