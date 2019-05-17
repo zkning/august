@@ -17,7 +17,8 @@ public class Pager<T> implements Serializable {
     private Integer pageNo;
     private Long totalElements;
     private List<T> content;
-
+    public Pager(){
+    }
     public Pager(Integer pageNo, Integer pageSize) {
         this.pageNo = pageNo;
         this.pageSize = pageSize;

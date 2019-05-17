@@ -26,8 +26,8 @@ public class AdminController {
         List<Menu> fl = new ArrayList<>();
         Menu f = new Menu();
         fl.add(f);
-        f.setName("一级");
-        f.setUrl("http://www.baidu.com");
+        f.setText("一级");
+        f.setLink("http://www.baidu.com");
         f.setIcon("layui-icon layui-icon-component");
 
         // 二级
@@ -35,8 +35,8 @@ public class AdminController {
         f.setChild(sl);
         Menu sm = new Menu();
         sl.add(sm);
-        sm.setName("二级");
-        sm.setUrl("http://www.baidu.com");
+        sm.setText("二级");
+        sm.setLink("http://www.baidu.com");
         sm.setIcon("");
 
         // 三级
@@ -44,8 +44,8 @@ public class AdminController {
         sm.setChild(tl);
         Menu tm = new Menu();
         tl.add(tm);
-        tm.setName("三级");
-        tm.setUrl("http://www.baidu.com");
+        tm.setText("三级");
+        tm.setLink("http://www.baidu.com");
         tm.setIcon("");
 
         model.addAttribute("menus", fl);

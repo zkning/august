@@ -53,6 +53,11 @@ public class Message implements Serializable {
     private Date createTime;
 
     /**
+     * 创建人
+     */
+    private String createUser;
+
+    /**
      *
      */
     private Date lastUpdateTime;

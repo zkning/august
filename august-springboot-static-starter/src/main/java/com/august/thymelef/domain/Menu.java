@@ -1,44 +1,49 @@
 package com.august.thymelef.domain;
 
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableName;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
-public class Menu implements Serializable {
+@TableName("t_menu")
+public class Menu extends Exampletable {
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    @ApiModelProperty(value = "文本")
+    private String text;
 
-    // 父菜单ID，一级菜单为0
-    private Long parentId;
-
-    // 菜单名称
-    private String name;
-
-    // 编号
+    @ApiModelProperty(value = "资源编码")
     private String code;
 
-    // 菜单URL
-    private String url;
+    @ApiModelProperty(value = "国际化")
+    private String i18n;
 
-    // 类型  1=菜单 2=按钮
-    private Integer type;
+    @ApiModelProperty(value = "link")
+    private String link;
 
-    // 菜单图标
+    @ApiModelProperty(value = "extraLink")
+    @TableField("extra_link")
+    private String extraLink;
+
+    @ApiModelProperty(value = "图标")
     private String icon;
 
-    // 排序
-    private Integer sort;
+    @ApiModelProperty(value = "父级菜单")
+    private Long pid;
 
-    // 创建时间
-    private Date createTime;
+    @ApiModelProperty(value = "类型")
+    private Integer type;
 
-    // 修改时间
-    private Date modifiedTime;
+    @ApiModelProperty(value = "扩展数据")
+    private String extra;
 
-    private List<Menu> child = new ArrayList<>();
+    /**
+     * 下级菜单
+     */
+    @TableField(exist = false)
+    @ApiModelProperty(value = "下级菜单")
+    private List<Menu> child;
 }
