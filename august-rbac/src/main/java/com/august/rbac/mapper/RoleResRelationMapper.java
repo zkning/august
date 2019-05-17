@@ -28,9 +28,9 @@ public interface RoleResRelationMapper extends BaseMapper<RoleResRelation> {
     List<RoleResRelation> findByRoleId(@Param("roleId") Long roleId);
 
     /**
-     * 删除资源id为resourceId的中间关联数据
+     * 删除资源id为resId的中间关联数据
      *
-     * @param resourceId
+     * @param resId
      */
-    void deleteByResourceIdIn(@Param("resIds") List resIds);
+    void deleteByresIdIn(@Param("resIds") List resIds);
 }

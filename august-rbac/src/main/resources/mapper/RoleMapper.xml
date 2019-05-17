@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.august.rbac.mapper.RoleMapper">
+
+    <select id="list" parameterType="com.august.rbac.dto.RoleSearchDTO"
+            resultType="com.august.rbac.dto.RoleFetchDTO">
+        select t.* from
+        t_rbac_role t
+        <where>
+            1=1
+            <if test="params.roleType != null">
+                and t.role_type=#{params.roleType}
+            </if>
+            <if test="params.roleCode != null">
+                and t.role_code=#{params.roleCode}
+            </if>
+            <if test="params.roleName != null">
+                and t.role_name=#{params.roleName}
+            </if>
+        </where>
+        order by t.create_time desc
+    </select>
+    <select id="findAllRoleByUserId" resultType="com.august.rbac.domain.Role">
+        SELECT
+            trr.*
+        FROM
+            t_rbac_role trr
+        WHERE
+            EXISTS (
+                SELECT trurr.role_id FROM
+                t_rbac_user_role_relation trurr
+                WHERE
+                trurr.role_id = trr.id
+                AND trurr.user_id = #{userId}
+            )
+    </select>
+    <select id="findRoleByUserIdAndRoleType" resultType="com.august.rbac.domain.Role">
+        SELECT
+            trr.*
+        FROM
+            t_rbac_role trr
+        WHERE
+            EXISTS (
+            SELECT
+                trurr.role_id
+            FROM
+                t_rbac_user_role_relation trurr
+            WHERE
+            trurr.role_id = trr.id
+            AND trurr.user_id = #{userId}
+            AND trr.role_code = #{roleCode}
+    </select>
+    <select id="findByRoleCode" resultType="com.august.rbac.domain.Role">
+        select * from
+        t_rbac_role
+        where
+        role_code = #{roleCode}
+    </select>
+    <select id="findByRoleType" resultType="com.august.rbac.domain.Role">
+        select * from
+        t_rbac_role
+        where
+        role_type = #{roleType}
+    </select>
+</mapper>

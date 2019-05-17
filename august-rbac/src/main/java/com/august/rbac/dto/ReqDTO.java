@@ -1,4 +1,4 @@
-package com.august.rbac.model.request;
+package com.august.rbac.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Created by ningzuokun on 2018/3/17.
  */
 @Data
-public class Request implements Serializable {
+public class ReqDTO implements Serializable {
 
     @ApiModelProperty(value = "请求序列号", hidden = true)
     private String serialNo;

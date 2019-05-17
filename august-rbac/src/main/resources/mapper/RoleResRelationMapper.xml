@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.august.rbac.mapper.RoleResRelationMapper">
-    <delete id="deleteByResourceIdIn">
+    <delete id="deleteByresIdIn">
         delete from t_rbac_role_resource_relation
-        where resource_id in
+        where res_id in
         <foreach collection="resIds" index="index" item="item" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -11,7 +11,7 @@
 
     <select id="findResourecesIdsByUserId" resultType="java.lang.Long">
         SELECT
-            resource_id
+            res_id
         FROM
             t_rbac_role_resource_relation
         WHERE

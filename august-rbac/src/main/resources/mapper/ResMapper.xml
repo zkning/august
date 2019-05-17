@@ -4,7 +4,7 @@
 
     <select id="findByCode" resultType="com.august.rbac.domain.Res">
         SELECT * FROM
-        t_rbac_resource
+        t_rbac_res
         WHERE
         code = #{code}
     </select>
@@ -12,15 +12,15 @@
         SELECT
             trr.*
         FROM
-            t_rbac_resource trr
+            t_rbac_res trr
         WHERE
             EXISTS (
                 SELECT
-                    ts.resource_id
+                    ts.res_id
                 FROM
                     (
                         SELECT
-                            trrrr.resource_id
+                            trrrr.res_id
                         FROM
                             t_rbac_role_resource_relation trrrr
                         WHERE
@@ -29,28 +29,28 @@
                             AND trrur.role_id = trrrr.role_id )
                     ) ts
                     WHERE
-                    ts.resource_id = trr.id
+                    ts.res_id = trr.id
                 )
     </select>
-    <select id="findByResourceType" resultType="com.august.rbac.domain.Res">
+    <select id="findByresType" resultType="com.august.rbac.domain.Res">
         select * from
-        t_rbac_resource
+        t_rbac_res
         where
-        resource_type = #{resType}
+        res_type = #{resType}
     </select>
     <select id="findResourceByRoleUserIdAndType" resultType="com.august.rbac.domain.Res">
         SELECT
             trr.*
         FROM
-            t_rbac_resource trr
+            t_rbac_res trr
         WHERE
             EXISTS (
             SELECT
-                ts.resource_id
+                ts.res_id
             FROM
                 (
                 SELECT
-                    trrrr.resource_id
+                    trrrr.res_id
                 FROM
                     t_rbac_role_resource_relation trrrr
                 WHERE
@@ -61,22 +61,22 @@
                     AND trrur.user_id = #{userId}
                 ) ts
             WHERE
-                ts.resource_id = trr.id
+                ts.res_id = trr.id
             )
-            AND resource_type = #{resType}
+            AND res_type = #{resType}
     </select>
     <select id="findByRoleId" resultType="com.august.rbac.domain.Res">
       SELECT
         t.*
     FROM
-        t_rbac_resource t
-        JOIN t_rbac_role_resource_relation r ON t.id = r.resource_id
+        t_rbac_res t
+        JOIN t_rbac_role_resource_relation r ON t.id = r.res_id
     WHERE
         r.role_id = #{roleId}
     </select>
     <select id="findByPid" resultType="com.august.rbac.domain.Res">
         select * from
-        t_rbac_resource
+        t_rbac_res
         where
         pid = #{pid}
     </select>

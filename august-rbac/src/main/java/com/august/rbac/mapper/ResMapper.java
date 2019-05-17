@@ -24,7 +24,7 @@ public interface ResMapper extends BaseMapper<Res> {
      */
     List<Res> findResourceByRoleUserId(@Param("userId") Long userId);
 
-    List<Res> findByResourceType(@Param("resType") Integer resType);
+    List<Res> findByresType(@Param("resType") Integer resType);
 
     /**
      * 获取所有资源根据用户id，资源类型
