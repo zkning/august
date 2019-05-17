@@ -6,8 +6,7 @@ package com.august.rbac.consts;
  */
 public enum ResTypeEnum {
     MENU(1, "菜单"),
-    FUNC(2, "功能按钮"),
-    SERV(3, "服务");
+    SERV(2, "服务");
 
     private Integer code;
     private String value;

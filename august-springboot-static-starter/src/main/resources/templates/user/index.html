@@ -109,9 +109,9 @@
                     <li data-name="set" class="layui-nav-item" th:each="menu : ${menus}">
 
                         <!--first menu-->
-                        <a href="javascript:;" th:attr="lay-tips=${menu.name}" lay-direction="2">
+                        <a href="javascript:;" th:attr="lay-tips=${menu.text}" lay-direction="2">
                             <i th:class="${menu.icon}"></i>
-                            <cite th:text="${menu.name}">first level</cite>
+                            <cite th:text="${menu.text}">first level</cite>
                         </a>
 
                         <!--second menu-->
@@ -119,15 +119,15 @@
                             <dd class="layui-nav-itemed" th:each="s : ${menu.child}">
 
                                 <!---->
-                                <a th:text="${s.name}" th:if="${not #lists.isEmpty(s.child)}" href="javascript:;">second
+                                <a th:text="${s.text}" th:if="${not #lists.isEmpty(s.child)}" href="javascript:;">second
                                     level</a>
-                                <a th:text="${s.name}" th:if="${#lists.isEmpty(s.child)}"
-                                   th:attr="lay-href=${s.url}">second level</a>
+                                <a th:text="${s.text}" th:if="${#lists.isEmpty(s.child)}"
+                                   th:attr="lay-href=${s.link}">second level</a>
 
                                 <!--third menu-->
                                 <dl class="layui-nav-child" th:if="${not #lists.isEmpty(s.child)}">
                                     <dd th:each="t : ${s.child}">
-                                        <a th:text="${t.name}" th:attr="lay-href=${t.url}">third menu1</a>
+                                        <a th:text="${t.text}" th:attr="lay-href=${t.link}">third menu1</a>
                                     </dd>
                                 </dl>
                             </dd>

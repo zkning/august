@@ -4,7 +4,7 @@ import com.august.rbac.domain.UserInfo;
 import com.august.rbac.dto.*;
 import com.august.rbac.service.ResService;
 import com.august.rbac.service.UserService;
-import com.august.rbac.utils.SessionContextHolder;
+import com.august.rbac.utils.OAuth2ContextHolder;
 import com.august.website.utils.Pager;
 import com.august.website.utils.Resp;
 import io.swagger.annotations.ApiModelProperty;
@@ -86,7 +86,7 @@ public class UserInfoController {
     @PostMapping(value = "/unlock")
     public Resp unlock(@RequestBody @Valid UnLockDTO unLockModel) {
         return userService
-                .findByUserNameAndPassword(SessionContextHolder.getPrincipal().getUsername(),
+                .findByUserNameAndPassword(OAuth2ContextHolder.getPrincipal().getUsername(),
                         unLockModel.getPassword());
     }
 }

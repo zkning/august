@@ -24,7 +24,7 @@ import java.util.List;
 @Service
 public class RoleService {
 
-    private static final String ROLE_TYPE_CODE = "JUESEFENLEI";
+    private static final String ROLE_TYPE_CODE = "JUE_SE_FEN_LEI";
 
     @Autowired
     private RoleMapper roleMapper;
@@ -60,8 +60,6 @@ public class RoleService {
 
     public Resp edit(RoleEditDTO roleEditModel) {
         Role role = roleMapper.findByRoleCode(roleEditModel.getRoleCode());
-
-        // 创建
         if (null != role && null == roleEditModel.getId()) {
             return Resp.FAILURE("角色编号已存在!");
         } else if (null != role &&

@@ -4,7 +4,7 @@ import com.august.rbac.security.OAuth2Principal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 
-public class SessionContextHolder {
+public class OAuth2ContextHolder {
 
 
     public static OAuth2Principal getPrincipal() {

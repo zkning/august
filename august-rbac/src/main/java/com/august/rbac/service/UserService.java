@@ -11,8 +11,8 @@ import com.august.rbac.mapper.RoleMapper;
 import com.august.rbac.mapper.UserInfoMapper;
 import com.august.rbac.mapper.UserRoleRelationMapper;
 import com.august.rbac.security.OAuth2Principal;
+import com.august.rbac.utils.OAuth2ContextHolder;
 import com.august.rbac.utils.RecursiveTools;
-import com.august.rbac.utils.SessionContextHolder;
 import com.august.website.utils.Pager;
 import com.august.website.utils.Resp;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -120,7 +120,7 @@ public class UserService {
     }
 
     public Resp updatePwd(UpdatePwdDTO updatePwdModel) {
-        OAuth2Principal additionalInfo = SessionContextHolder.getPrincipal();
+        OAuth2Principal additionalInfo = OAuth2ContextHolder.getPrincipal();
         UserInfo userInfo = userInfoMapper.selectById(additionalInfo.getId());
 
         // 旧密码对比
@@ -258,7 +258,7 @@ public class UserService {
 
 
     public Resp<UserInfoFetchDTO> getCustomInfo() {
-        OAuth2Principal auth2Principal = SessionContextHolder.getPrincipal();
+        OAuth2Principal auth2Principal = OAuth2ContextHolder.getPrincipal();
         UserInfo userInfo = userInfoMapper.selectById(auth2Principal.getId());
         if (null == userInfo) {
             return Resp.FAILURE("记录不存在");
