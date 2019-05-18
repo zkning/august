@@ -26,10 +26,10 @@
     </properties>
 
     <modules>
-        <module>august-commons</module>
-        <module>august-redisson-springboot-starter</module>
         <module>august-springboot-parent</module>
-        <module>august-springboot-web-starter</module>
-        <module>august-springboot-static-starter</module>
+        <module>august-springboot-website-starter</module>
+        <module>august-springboot-admin-starter</module>
+        <module>august-redisson-springboot-starter</module>
+        <module>august-rbac</module>
     </modules>
 </project>

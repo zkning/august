@@ -8,7 +8,7 @@ import com.august.rbac.dto.RoleSearchDTO;
 import com.august.rbac.dto.TreeNodeDTO;
 import com.august.rbac.mapper.DictMapper;
 import com.august.rbac.mapper.RoleMapper;
-import com.august.rbac.utils.RecursiveTools;
+import com.august.website.utils.RecursiveTools;
 import com.august.website.utils.Resp;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;

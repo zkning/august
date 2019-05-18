@@ -7,7 +7,6 @@ import com.august.rbac.service.UserService;
 import com.august.rbac.service.ResService;
 import com.august.rbac.service.RoleService;
 import org.apache.commons.collections.CollectionUtils;
-import org.assertj.core.util.Lists;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SecurityUserDetailService implements UserDetailsService {
@@ -38,7 +38,7 @@ public class SecurityUserDetailService implements UserDetailsService {
         }
 
         // 获取用户权限
-        List<GrantedAuthority> auths = Lists.newArrayList();
+        List<GrantedAuthority> auths = new ArrayList<>();
         List<Res> resources = resourcesService.findAllResourcesByUserId(userInfo.getId());
         if (CollectionUtils.isNotEmpty(resources)) {
             for (Res res : resources) {

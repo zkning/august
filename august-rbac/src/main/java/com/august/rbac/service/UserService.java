@@ -1,7 +1,7 @@
 package com.august.rbac.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.august.commons.utils.Md5Util;
+import com.august.website.utils.Md5Util;
 import com.august.rbac.domain.Group;
 import com.august.rbac.domain.Role;
 import com.august.rbac.domain.UserInfo;
@@ -12,14 +12,14 @@ import com.august.rbac.mapper.UserInfoMapper;
 import com.august.rbac.mapper.UserRoleRelationMapper;
 import com.august.rbac.security.OAuth2Principal;
 import com.august.rbac.utils.OAuth2ContextHolder;
-import com.august.rbac.utils.RecursiveTools;
+import com.august.website.utils.RecursiveTools;
 import com.august.website.utils.Pager;
 import com.august.website.utils.Resp;
 import com.baomidou.mybatisplus.plugins.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
-import org.assertj.core.util.Lists;
+import com.google.common.collect.Lists;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

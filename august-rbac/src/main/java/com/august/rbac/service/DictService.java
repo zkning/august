@@ -7,21 +7,21 @@ import com.august.rbac.dto.DictFetchDTO;
 import com.august.rbac.dto.DictSearchDTO;
 import com.august.rbac.dto.TreeNodeDTO;
 import com.august.rbac.mapper.DictMapper;
-import com.august.rbac.utils.RecursiveTools;
+import com.august.website.utils.RecursiveTools;
 import com.august.website.utils.Pager;
 import com.august.website.utils.Resp;
 import com.baomidou.mybatisplus.plugins.Page;
 import org.apache.commons.collections.CollectionUtils;
-import org.assertj.core.util.Lists;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author ningzuokun
- * 数据字段服务
+ *         数据字段服务
  */
 @Service
 public class DictService {
@@ -64,7 +64,7 @@ public class DictService {
     public List<DictFetchDTO> findByPValue(String value) {
         Dict pDict = dictMapper.findByValue(value);
         List<Dict> ds = dictMapper.findByPidOrderBySortDesc(pDict.getId());
-        List<DictFetchDTO> items = Lists.newArrayList();
+        List<DictFetchDTO> items = new ArrayList<>();
         ds.forEach(dict -> {
             DictFetchDTO dm = new DictFetchDTO();
             new ModelMapper().map(dict, dm);
@@ -89,9 +89,9 @@ public class DictService {
     public List<TreeNodeDTO> treeNodes() {
         List<Dict> dicts = dictMapper.findByPidOrderBySortDesc(TOP_NODE);
         if (CollectionUtils.isEmpty(dicts)) {
-            return Lists.newArrayList();
+            return new ArrayList<>();
         }
-        List<TreeNodeDTO> nodes = Lists.newArrayList();
+        List<TreeNodeDTO> nodes = new ArrayList<>();
         dicts.forEach(group -> {
             nodes.add(TreeNodeDTO.builder()
                     .key(group.getId() + "")
@@ -107,7 +107,7 @@ public class DictService {
                 item.setLeaf(true);
                 return null;
             }
-            List<TreeNodeDTO> list = Lists.newArrayList();
+            List<TreeNodeDTO> list = new ArrayList<>();
             entitys.forEach(dict -> {
                 list.add(TreeNodeDTO.builder()
                         .key(dict.getId() + "")

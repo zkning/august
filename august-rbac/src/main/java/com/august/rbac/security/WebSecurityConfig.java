@@ -1,6 +1,5 @@
 package com.august.rbac.security;
 
-import org.assertj.core.util.Lists;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -10,6 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ import java.util.List;
 @Order(-1)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    public static final List<String> antPatterns = Lists.newArrayList();
+    public static final List<String> antPatterns = new ArrayList<>();
 
     static {
         antPatterns.add("/**/permit/**");

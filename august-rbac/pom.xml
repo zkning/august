@@ -15,11 +15,6 @@
     <version>1.0.0</version>
 
     <dependencies>
-        <dependency>
-            <groupId>com.august</groupId>
-            <artifactId>augest-commons</artifactId>
-            <version>1.0.0</version>
-        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
         <dependency>
@@ -72,7 +67,7 @@
 
         <dependency>
             <groupId>com.august</groupId>
-            <artifactId>august-springboot-web-starter</artifactId>
+            <artifactId>august-springboot-website-starter</artifactId>
             <version>1.0.0</version>
         </dependency>
 

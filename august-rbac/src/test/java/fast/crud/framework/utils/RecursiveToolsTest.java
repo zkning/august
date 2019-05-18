@@ -2,8 +2,8 @@ package fast.crud.framework.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.august.rbac.domain.Group;
-import com.august.rbac.utils.RecursiveTools;
-import org.assertj.core.util.Lists;
+import com.august.website.utils.RecursiveTools;
+import com.google.common.collect.Lists;
 import org.junit.Test;
 
 import java.util.List;

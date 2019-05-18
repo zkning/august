@@ -7,16 +7,17 @@ import com.august.rbac.dto.GroupSearchDTO;
 import com.august.rbac.dto.TreeNodeDTO;
 import com.august.rbac.mapper.GroupMapper;
 import com.august.rbac.mapper.UserInfoMapper;
-import com.august.rbac.utils.RecursiveTools;
+import com.august.website.utils.RecursiveTools;
 import com.august.website.utils.Resp;
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
-import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -105,9 +106,9 @@ public class GroupService {
     public List<TreeNodeDTO> getGroupTreeModel(Long pid) {
         List<Group> groups = groupMapper.findByPid(pid);
         if (CollectionUtils.isEmpty(groups)) {
-            return Lists.newArrayList();
+            return new ArrayList<>();
         }
-        List<TreeNodeDTO> treeNodeModels = Lists.newArrayList();
+        List<TreeNodeDTO> treeNodeModels = new ArrayList<>();
         groups.forEach(group -> {
             treeNodeModels.add(TreeNodeDTO.builder()
                     .key(group.getId() + "")
@@ -147,7 +148,7 @@ public class GroupService {
     public List<TreeNodeDTO> getPermitTreeModel(Long userId) {
         List<Group> groups = this.getMaxGroupIdByUserId(userId);
 
-        List<TreeNodeDTO> treeNodeModels = Lists.newArrayList();
+        List<TreeNodeDTO> treeNodeModels = new ArrayList<>();
         groups.forEach(group -> {
             treeNodeModels.add(TreeNodeDTO.builder()
                     .key(group.getId() + "")
@@ -167,7 +168,7 @@ public class GroupService {
                 item.setLeaf(true);
                 return null;
             }
-            List<TreeNodeDTO> list = Lists.newArrayList();
+            List<TreeNodeDTO> list = new ArrayList<>();
             groupList.forEach(group -> {
                 list.add(TreeNodeDTO.builder()
                         .key(group.getId() + "")
@@ -186,7 +187,7 @@ public class GroupService {
      * 获取当前用户拥有的最大机构权限
      */
     public List<Group> getMaxGroupIdByUserId(Long userId) {
-        List<Group> groupIds = Lists.newArrayList();
+        List<Group> groupIds = new ArrayList<>();
 
         //获取用户所在分组
         Group userGroup = groupMapper.findByUserId(userId);
