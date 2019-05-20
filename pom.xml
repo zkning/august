@@ -30,6 +30,5 @@
         <module>august-springboot-website-starter</module>
         <module>august-springboot-admin-starter</module>
         <module>august-redisson-springboot-starter</module>
-        <module>august-rbac</module>
     </modules>
 </project>
