@@ -47,4 +47,10 @@
         where
         value = #{value}
     </select>
+    <select id="findByPid" resultType="com.august.rbac.domain.Dict">
+          select * from
+          t_rbac_dict
+          where
+          pid = #{pid}
+    </select>
 </mapper>

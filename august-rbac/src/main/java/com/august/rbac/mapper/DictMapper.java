@@ -16,6 +16,7 @@ public interface DictMapper extends BaseMapper<Dict> {
     List<DictFetchDTO> list(Page page, @Param("params") DictSearchDTO dictSearchModel);
 
     List<Dict> findByPidOrderBySortDesc(@Param("pid") Long pid);
+    Dict findByPid(@Param("pid") Long pid);
 
     Dict findByValue(@Param("value") String value);
 }
