@@ -1,6 +1,6 @@
 package com.bootdo.common.dao;
 
-import com.bootdo.common.domain.TaskDO;
+import com.bootdo.common.domain.TaskScheduleDO;
 
 import java.util.List;
 import java.util.Map;
@@ -14,17 +14,17 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2017-10-03 15:45:42
  */
 @Mapper
-public interface TaskDao {
+public interface TaskScheduleDao {
 
-	TaskDO get(Long id);
+	TaskScheduleDO get(Long id);
 	
-	List<TaskDO> list(Map<String,Object> map);
+	List<TaskScheduleDO> list(Map<String,Object> map);
 	
 	int count(Map<String,Object> map);
 	
-	int save(TaskDO task);
+	int save(TaskScheduleDO task);
 	
-	int update(TaskDO task);
+	int update(TaskScheduleDO task);
 	
 	int remove(Long id);
 	

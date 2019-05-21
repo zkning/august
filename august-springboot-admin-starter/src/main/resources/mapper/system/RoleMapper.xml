@@ -35,7 +35,7 @@
 		</if>
 	</select>
 
-	<select id="count" resultType="int">
+	<select id="count" resultType="java.lang.Integer">
 		select count(*) from sys_role
 		<where>
 			<if test="roleId != null and roleId != ''"> and role_id = #{roleId} </if>

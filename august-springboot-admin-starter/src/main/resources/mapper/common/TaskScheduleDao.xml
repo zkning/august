@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bootdo.common.dao.TaskDao">
+<mapper namespace="com.bootdo.common.dao.TaskScheduleDao">
 
-    <select id="get" resultType="com.bootdo.common.domain.TaskDO">
+    <select id="get" resultType="com.bootdo.common.domain.TaskScheduleDO">
 		select `id`,`cron_expression`,`method_name`,`is_concurrent`,`description`,`update_by`,`bean_class`,`create_date`,`job_status`,`job_group`,`update_date`,`create_by`,`spring_bean`,`job_name` from sys_task where id = #{value}
 	</select>
 
-    <select id="list" resultType="com.bootdo.common.domain.TaskDO">
+    <select id="list" resultType="com.bootdo.common.domain.TaskScheduleDO">
         select `id`,
         `cron_expression`,
         `method_name`,
@@ -71,7 +71,7 @@
         </where>
     </select>
 
-    <insert id="save" parameterType="com.bootdo.common.domain.TaskDO" useGeneratedKeys="true" keyProperty="id">
+    <insert id="save" parameterType="com.bootdo.common.domain.TaskScheduleDO" useGeneratedKeys="true" keyProperty="id">
 		insert into sys_task
 		(
 			`cron_expression`, 
@@ -106,7 +106,7 @@
 		)
 	</insert>
 
-    <update id="update" parameterType="com.bootdo.common.domain.TaskDO">
+    <update id="update" parameterType="com.bootdo.common.domain.TaskScheduleDO">
         update sys_task
         <set>
             <if test="cronExpression != null">`cron_expression` = #{cronExpression},</if>

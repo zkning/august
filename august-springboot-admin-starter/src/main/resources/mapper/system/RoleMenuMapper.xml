@@ -28,7 +28,7 @@
 		</if>
 	</select>
 
-	<select id="count" resultType="int">
+	<select id="count" resultType="java.lang.Integer">
 		select count(*) from sys_role_menu
 		<where>
 			<if test="id != null and id != ''"> and id = #{id} </if>
@@ -72,7 +72,7 @@
 		</foreach>
 	</delete>
 
-	<select id="listMenuIdByRoleId" resultType="long">
+	<select id="listMenuIdByRoleId" resultType="java.lang.Long">
 		select menu_id from sys_role_menu
 		<where>role_id = #{roleId}</where>
 	</select>

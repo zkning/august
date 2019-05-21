@@ -1,9 +1,9 @@
 package com.bootdo.common.service.impl;
 
 import com.bootdo.common.config.Constant;
-import com.bootdo.common.dao.TaskDao;
+import com.bootdo.common.dao.TaskScheduleDao;
 import com.bootdo.common.domain.ScheduleJob;
-import com.bootdo.common.domain.TaskDO;
+import com.bootdo.common.domain.TaskScheduleDO;
 import com.bootdo.common.quartz.utils.QuartzManager;
 import com.bootdo.common.service.JobService;
 import com.bootdo.common.utils.ScheduleJobUtils;
@@ -19,18 +19,18 @@ import java.util.Map;
 public class JobServiceImpl implements JobService {
 
 	@Autowired
-	private TaskDao taskScheduleJobMapper;
+	private TaskScheduleDao taskScheduleJobMapper;
 
 	@Autowired
 	QuartzManager quartzManager;
 
 	@Override
-	public TaskDO get(Long id) {
+	public TaskScheduleDO get(Long id) {
 		return taskScheduleJobMapper.get(id);
 	}
 
 	@Override
-	public List<TaskDO> list(Map<String, Object> map) {
+	public List<TaskScheduleDO> list(Map<String, Object> map) {
 		return taskScheduleJobMapper.list(map);
 	}
 
@@ -40,19 +40,19 @@ public class JobServiceImpl implements JobService {
 	}
 
 	@Override
-	public int save(TaskDO taskScheduleJob) {
+	public int save(TaskScheduleDO taskScheduleJob) {
 		return taskScheduleJobMapper.save(taskScheduleJob);
 	}
 
 	@Override
-	public int update(TaskDO taskScheduleJob) {
+	public int update(TaskScheduleDO taskScheduleJob) {
 		return taskScheduleJobMapper.update(taskScheduleJob);
 	}
 
 	@Override
 	public int remove(Long id) {
 		try {
-			TaskDO scheduleJob = get(id);
+			TaskScheduleDO scheduleJob = get(id);
 			quartzManager.deleteJob(ScheduleJobUtils.entityToData(scheduleJob));
 			return taskScheduleJobMapper.remove(id);
 		} catch (SchedulerException e) {
@@ -66,7 +66,7 @@ public class JobServiceImpl implements JobService {
 	public int batchRemove(Long[] ids) {
 		for (Long id : ids) {
 			try {
-				TaskDO scheduleJob = get(id);
+				TaskScheduleDO scheduleJob = get(id);
 				quartzManager.deleteJob(ScheduleJobUtils.entityToData(scheduleJob));
 			} catch (SchedulerException e) {
 				e.printStackTrace();
@@ -79,8 +79,8 @@ public class JobServiceImpl implements JobService {
 	@Override
 	public void initSchedule() throws SchedulerException {
 		// 这里获取任务信息数据
-		List<TaskDO> jobList = taskScheduleJobMapper.list(new HashMap<String, Object>(16));
-		for (TaskDO scheduleJob : jobList) {
+		List<TaskScheduleDO> jobList = taskScheduleJobMapper.list(new HashMap<String, Object>(16));
+		for (TaskScheduleDO scheduleJob : jobList) {
 			if ("1".equals(scheduleJob.getJobStatus())) {
 				ScheduleJob job = ScheduleJobUtils.entityToData(scheduleJob);
 				quartzManager.addJob(job);
@@ -91,7 +91,7 @@ public class JobServiceImpl implements JobService {
 
 	@Override
 	public void changeStatus(Long jobId, String cmd) throws SchedulerException {
-		TaskDO scheduleJob = get(jobId);
+		TaskScheduleDO scheduleJob = get(jobId);
 		if (scheduleJob == null) {
 			return;
 		}
@@ -110,7 +110,7 @@ public class JobServiceImpl implements JobService {
 
 	@Override
 	public void updateCron(Long jobId) throws SchedulerException {
-		TaskDO scheduleJob = get(jobId);
+		TaskScheduleDO scheduleJob = get(jobId);
 		if (scheduleJob == null) {
 			return;
 		}
