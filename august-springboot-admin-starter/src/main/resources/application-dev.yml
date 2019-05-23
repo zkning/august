@@ -58,9 +58,14 @@ bootdo:
   uploadPath: e:/var/uploaded_files/
   username: admin
   password: 111111
+
 # swagger
 swagger.enabled: false
 
 # dingtalk
 dingtalk.webhook: https://oapi.dingtalk.com/robot/send?access_token=718766ec52401387062804c24af4931267b0bbe455549f88c1c89267f5c4b039
 dingtalk.enabled: false
+
+security:
+  basic:
+    enabled: false

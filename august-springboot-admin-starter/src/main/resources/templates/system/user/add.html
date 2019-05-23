@@ -49,21 +49,25 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">状态:</label>
 								<div class="col-sm-8">
-									<label class="radio-inline"> <input type="radio"
-										name="status" value="1" /> 正常
-									</label> <label class="radio-inline"> <input type="radio"
-										name="status" value="0" /> 禁用
-									</label>
+
+									<div class="radio radio-inline">
+										<input id="status1" type="radio" name="status" value="1" checked>
+										<label for="status1">正常</label>
+									</div>
+									<div class="radio radio-inline">
+										<input id="status2" type="radio" name="status" value="0">
+										<label for="status2">禁用</label>
+									</div>
 								</div>
 							</div>
 							<input type="hidden" name="roleIds" id="roleIds">
 							<div class="form-group">
 								<label class="col-sm-3 control-label">角色</label>
 								<div class="col-sm-8">
-									<label th:each="role:${roles}" class="checkbox-inline">
-										<input name="role" type="checkbox" th:value="${role.roleId}"
-										th:text="${role.roleName}">
-									</label>
+									<div class="checkbox checkbox-inline" th:each="role:${roles}">
+										<input th:attr="id=cb + ${role.roleId}"  th:value="${role.roleId}"  type="checkbox" name="role">
+										<label th:attr="for=cb + ${role.roleId}" th:text="${role.roleName}"></label>
+									</div>
 								</div>
 							</div>
 							<div class="form-group">
