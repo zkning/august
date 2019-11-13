@@ -1,5 +1,5 @@
 
-var prefix = "/system/sysDept";
+var prefix = ctxPath + "system/sysDept";
 $(function() {
 	load();
 });

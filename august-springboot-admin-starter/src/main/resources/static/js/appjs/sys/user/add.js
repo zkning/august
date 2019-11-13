@@ -23,7 +23,7 @@ function save() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/sys/user/save",
+		url : ctxPath + "sys/user/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -55,7 +55,7 @@ function validateRule() {
 				required : true,
 				minlength : 2,
 				remote : {
-					url : "/sys/user/exit", // 后台处理程序
+					url : ctxPath + "sys/user/exit", // 后台处理程序
 					type : "post", // 数据发送方式
 					dataType : "json", // 接受数据格式
 					data : { // 要传递的数据
@@ -113,7 +113,7 @@ var openDept = function(){
 		type:2,
 		title:"选择部门",
 		area : [ '300px', '450px' ],
-		content:"/system/sysDept/treeView"
+		content: ctxPath + "system/sysDept/treeView"
 	})
 };
 function loadDept( deptId,deptName){

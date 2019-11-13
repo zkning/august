@@ -1,4 +1,4 @@
-var prefix = "/activiti/task";
+var prefix = ctxPath + "activiti/task";
 $(function () {
     load();
 });

@@ -1,4 +1,4 @@
-var prefix1 = "/oa/work";
+var prefix1 = ctxPath + "oa/work";
 $(function () {
     load();
 });

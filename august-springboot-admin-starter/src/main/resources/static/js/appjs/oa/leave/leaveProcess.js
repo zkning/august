@@ -1,4 +1,4 @@
-var prefix = "/oa/leave";
+var prefix = ctxPath + "oa/leave";
 $(function () {
     load()
 });

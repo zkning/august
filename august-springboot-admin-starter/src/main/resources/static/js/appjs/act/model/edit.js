@@ -14,7 +14,7 @@ function update() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/sys/user/update",
+		url : ctxPath + "sys/user/update",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -116,7 +116,7 @@ var openDept = function(){
 		type:2,
 		title:"选择部门",
 		area : [ '300px', '450px' ],
-		content:"/system/sysDept/treeView"
+		content: ctxPath + "system/sysDept/treeView"
 	})
 };
 function loadDept( deptId,deptName){

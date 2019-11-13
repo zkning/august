@@ -1,4 +1,4 @@
-var prefix = "/common/generator";
+var prefix = ctxPath + "common/generator";
 $(function() {
 	load();
 });

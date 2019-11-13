@@ -14,7 +14,7 @@ $("#userName").click(function () {
         type: 2,
         title: '选择人员',
         area: ['300px', '450px'],
-        content: "/sys/user/treeView"
+        content: ctxPath + "sys/user/treeView"
     })
 });
 
@@ -28,7 +28,7 @@ function save() {
     $.ajax({
         cache: true,
         type: "POST",
-        url: "/act/salary/save",
+        url: ctxPath + "act/salary/save",
         data: $('#signupForm').serialize(),// 你的formid
         async: false,
         error: function (request) {

@@ -1,4 +1,4 @@
-var prefix = "/activiti/process";
+var prefix = ctxPath + "activiti/process";
 $(function () {
     load();
 });
@@ -148,7 +148,7 @@ function edit(id) {
         maxmin: true,
         shadeClose: false,
         area: ['100%', '100%'],
-        content: "/activiti/customActivities?processId=" + id
+        content: ctxPath + "activiti/customActivities?processId=" + id
     });
 }
 
@@ -208,7 +208,7 @@ function batchRemove() {
 function getTreeData() {
     $.ajax({
         type: "GET",
-        url: "/system/sysDept/tree",
+        url: ctxPath + "system/sysDept/tree",
         success: function (tree) {
             loadTree(tree);
         }

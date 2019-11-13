@@ -1,4 +1,4 @@
-var prefix = "/blog/bContent";
+var prefix = ctxPath + "blog/bContent";
 $(function() {
 	load();
 });
@@ -232,7 +232,7 @@ function remove(id) {
 }
 
 function preview(id) {
-	window.open("/blog/open/post/"+id);   
+	window.open(ctxPath + "blog/open/post/"+id);
 	//window.location.href="/blog/open/post/"+id;
 }
 function batchRemove() {

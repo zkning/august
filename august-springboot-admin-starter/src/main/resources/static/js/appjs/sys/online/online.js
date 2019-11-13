@@ -1,4 +1,4 @@
-var prefix = "/sys/online";
+var prefix = ctxPath + "sys/online";
 $(function() {
 	load();
 });

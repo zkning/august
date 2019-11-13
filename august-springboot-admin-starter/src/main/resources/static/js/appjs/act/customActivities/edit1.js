@@ -12,7 +12,7 @@ function update1() {
     $.ajax({
         cache: true,
         type: "POST",
-        url: "/activiti/customActivities/update",
+        url: ctxPath + "activiti/customActivities/update",
         data: $('#signupForm1').serialize(),// 你的formid
         async: false,
         error: function (request) {

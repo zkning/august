@@ -35,19 +35,24 @@ import javax.imageio.ImageIO;
 @Transactional
 @Service
 public class UserServiceImpl implements UserService {
+
     @Autowired
     UserDao userMapper;
+
     @Autowired
     UserRoleDao userRoleMapper;
+
     @Autowired
     DeptDao deptMapper;
+
     @Autowired
     private FileService sysFileService;
+
     @Autowired
     private BootdoConfig bootdoConfig;
+
     @Autowired
     DeptService deptService;
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     @Override
 //    @Cacheable(value = "user",key = "#id")

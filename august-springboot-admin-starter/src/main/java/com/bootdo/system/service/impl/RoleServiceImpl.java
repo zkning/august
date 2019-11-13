@@ -22,17 +22,19 @@ import com.bootdo.system.service.RoleService;
 
 @Service
 public class RoleServiceImpl implements RoleService {
-
     public static final String ROLE_ALL_KEY = "\"role_all\"";
 
     public static final String DEMO_CACHE_NAME = "role";
 
     @Autowired
     RoleDao roleMapper;
+
     @Autowired
     RoleMenuDao roleMenuMapper;
+
     @Autowired
     UserDao userMapper;
+
     @Autowired
     UserRoleDao userRoleMapper;
 

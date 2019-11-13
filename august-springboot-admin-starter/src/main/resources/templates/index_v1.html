@@ -11,11 +11,11 @@
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
     <link rel="shortcut icon" href="favicon.ico">
-    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-    <link href="/css/animate.css" rel="stylesheet">
-    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/css/bootstrap.min.css?v=3.3.6" th:href="@{/css/bootstrap.min.css?v=3.3.6}" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?v=4.4.0" th:href="@{/css/font-awesome.min.css?v=4.4.0}" rel="stylesheet">
+    <link href="/css/plugins/toastr/toastr.min.css" th:href="@{/css/plugins/toastr/toastr.min.css}" rel="stylesheet">
+    <link href="/css/animate.css" th:href="@{/css/animate.css}"  rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" th:href="@{/css/style.css?v=4.1.0}" rel="stylesheet">
 </head>
 <body class="fixed-sidebar full-height-layout gray-bg"
       style="overflow: hidden">
@@ -53,7 +53,7 @@
                             <li><a @click="personal" href="#">信箱</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="/logout">安全退出</a>
+                            <li><a href="/logout" th:href="@{/logout}">安全退出</a>
                             </li>
                         </ul>
                         <div class="logo-element">BootDo</div>
@@ -100,8 +100,9 @@
                     </form>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
-                    <li class="hidden-xs"><a href="/blog" target="_Blank"
-                                             class=""><i class="fa fa-rss-square"></i>博客</a></li>
+                    <li class="hidden-xs">
+                        <a th:href="@{/blog}" target="_Blank" class="">
+                        <i class="fa fa-rss-square"></i>博客</a></li>
                     <li class="dropdown"><a class="dropdown-toggle count-info"
                                             data-toggle="dropdown" href="#"> <i class="fa fa-envelope"></i>
                         <span class="label label-warning">{{total}}</span>通知
@@ -123,8 +124,8 @@
                             </li>
                             <li>
                                 <div class="text-center link-block">
-                                    <a class="J_menuItem" href="/oa/notify/selfNotify"> <i
-                                            class="fa fa-envelope"></i> <strong> 查看所有消息</strong>
+                                    <a class="J_menuItem" th:href="@{/oa/notify/selfNotify}">
+                                        <i class="fa fa-envelope"></i> <strong> 查看所有消息</strong>
                                     </a>
                                 </div>
                             </li>
@@ -162,7 +163,7 @@
                     <li class="J_tabCloseOther"><a>关闭其他选项卡</a></li>
                 </ul>
             </div>
-            <a href="/logout" class="roll-nav roll-right J_tabExit"><i
+            <a href="/logout" th:href="@{/logout}" class="roll-nav roll-right J_tabExit"><i
                     class="fa fa fa-sign-out"></i> 退出</a>
         </div>
         <div class="row J_mainContent" id="content-main">
@@ -280,25 +281,24 @@
     </div>
 </div>
 <!-- 全局js -->
-<script src="/js/jquery.min.js?v=2.1.4"></script>
-<script src="/js/bootstrap.min.js?v=3.3.6"></script>
-<script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="/js/plugins/layer/layer.min.js"></script>
+<script src="/js/jquery.min.js?v=2.1.4" th:src="@{/js/jquery.min.js?v=2.1.4}"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6" th:src="@{/js/bootstrap.min.js?v=3.3.6}"></script>
+<script src="/js/plugins/metisMenu/jquery.metisMenu.js" th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script src="/js/plugins/slimscroll/jquery.slimscroll.min.js" th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+<script src="/js/plugins/layer/layer.min.js" th:src="@{/js/plugins/layer/layer.min.js}"></script>
 <!-- 自定义js -->
-<script src="/js/app.js?v=4.1.0"></script>
-<script type="text/javascript" src="/js/contabs.js"></script>
+<script src="/js/app.js?v=4.1.0" th:src="@{/js/app.js?v=4.1.0}"></script>
+<script type="text/javascript" src="/js/contabs.js" th:src="@{/js/contabs.js}"></script>
 <!-- 第三方插件 -->
-<script src="/js/plugins/pace/pace.min.js"></script>
+<script src="/js/plugins/pace/pace.min.js" th:src="@{/js/plugins/pace/pace.min.js}"></script>
 <!-- vue -->
-<script type="text/javascript"
-        src="/js/vue.min.js">
+<script type="text/javascript" src="/js/vue.min.js" th:src="@{/js/vue.min.js}">
 
 </script>
-<script src="/js/appjs/oa/webSocket/sockjs.min.js"></script>
-<script src="/js/appjs/oa/webSocket/stomp.min.js"></script>
+<script src="/js/appjs/oa/webSocket/sockjs.min.js" th:src="@{/js/appjs/oa/webSocket/sockjs.min.js}"></script>
+<script src="/js/appjs/oa/webSocket/stomp.min.js" th:src="@{/js/appjs/oa/webSocket/stomp.min.js}"></script>
 <!-- Toastr script -->
-<script src="/js/plugins/toastr/toastr.min.js"></script>
+<script src="/js/plugins/toastr/toastr.min.js" th:src="@{/js/plugins/toastr/toastr.min.js}"></script>
 <script type="text/javascript">
     var stompClient = null;
     $(function () {
@@ -306,15 +306,15 @@
     });
 
     function connect() {
-        var sock = new SockJS("/endpointChat");
+        var sock = new SockJS("endpointChat");
         var stomp = Stomp.over(sock);
         stomp.connect('guest', 'guest', function(frame) {
 
             /**  订阅了/user/queue/notifications 发送的消息,这里雨在控制器的 convertAndSendToUser 定义的地址保持一致, 
              *  这里多用了一个/user,并且这个user 是必须的,使用user 才会发送消息到指定的用户。 
              *  */
-            stomp.subscribe("/user/queue/notifications", handleNotification);
-            stomp.subscribe('/topic/getResponse', function (response) { //订阅/topic/getResponse 目标发送的消息。这个是在控制器的@SendTo中定义的。
+            stomp.subscribe("user/queue/notifications", handleNotification);
+            stomp.subscribe('topic/getResponse', function (response) { //订阅/topic/getResponse 目标发送的消息。这个是在控制器的@SendTo中定义的。
                 toastr.options = {
                     "closeButton": true,
                     "debug": false,
@@ -347,7 +347,7 @@
         },
         methods: {
             notify: function () {
-                $.getJSON('/oa/notify/message', function (r) {
+                $.getJSON('oa/notify/message', function (r) {
                     wrapper.total = r.total;
                     wrapper.rows = r.rows;
                 });
@@ -359,7 +359,7 @@
                     maxmin: true,
                     shadeClose: false,
                     area: ['800px', '600px'],
-                    content: '/sys/user/personal'
+                    content: 'sys/user/personal'
                 });
             }
         },

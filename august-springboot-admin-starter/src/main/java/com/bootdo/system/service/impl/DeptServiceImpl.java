@@ -1,5 +1,10 @@
 package com.bootdo.system.service.impl;
 
+import com.bootdo.common.domain.Tree;
+import com.bootdo.common.utils.BuildTree;
+import com.bootdo.system.dao.DeptDao;
+import com.bootdo.system.domain.DeptDO;
+import com.bootdo.system.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,15 +13,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.bootdo.common.domain.Tree;
-import com.bootdo.common.utils.BuildTree;
-import com.bootdo.system.dao.DeptDao;
-import com.bootdo.system.domain.DeptDO;
-import com.bootdo.system.service.DeptService;
-
 
 @Service
 public class DeptServiceImpl implements DeptService {
+
     @Autowired
     private DeptDao sysDeptMapper;
 

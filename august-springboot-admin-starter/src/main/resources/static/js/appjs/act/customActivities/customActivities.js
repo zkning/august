@@ -1,4 +1,4 @@
-var prefix = "/activiti/customActivities";
+var prefix = ctxPath + "activiti/customActivities";
 var activityType = 'userTask';
 $(function () {
     load();

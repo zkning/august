@@ -5,7 +5,7 @@
 <body>
 	<nav th:include="blog/index/include_blog::nav"  class="navbar navbar-default navbar-custom navbar-fixed-top" ></nav>
 	<header class="intro-header"
-		style="background-image: url('/img/blog/home-bg.jpg')">
+		style="background-image: url('./img/blog/home-bg.jpg')">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -48,7 +48,7 @@
 		function bindList(offset) {
 			$
 				.ajax({
-					url : 'blog/open/list?type=article&limit=10&offset=' + offset,
+					url : ctxPath + 'blog/open/list?type=article&limit=10&offset=' + offset,
 					method : 'get',
 					dataType : 'json',
 					success : function(data) {

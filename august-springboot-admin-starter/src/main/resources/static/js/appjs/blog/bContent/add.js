@@ -25,7 +25,7 @@ function save(status) {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/blog/bContent/save",
+		url : ctxPath + "blog/bContent/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {

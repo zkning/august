@@ -12,7 +12,7 @@ $.validator.setDefaults({
 function hisActivityByTaskId() {
     $.ajax({
         type: "get",
-        url: "/activiti/task/hisActivityByTaskId?taskId=" + taskId,
+        url: ctxPath + "activiti/task/hisActivityByTaskId?taskId=" + taskId,
         success: function (data) {
             var html = "";
             for (var i = 0; i < data.length; i++) {
@@ -28,7 +28,7 @@ function update() {
     $.ajax({
         cache: true,
         type: "POST",
-        url: "/oa/leave/update?taskId=" + taskId,
+        url: ctxPath + "oa/leave/update?taskId=" + taskId,
         data: $('#signupForm').serialize(),// 你的formid
         async: false,
         error: function (request) {

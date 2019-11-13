@@ -1,5 +1,5 @@
 
-var prefix = "/oa/notify";
+var prefix = ctxPath + "oa/notify";
 $(function() {
 	load();
 });

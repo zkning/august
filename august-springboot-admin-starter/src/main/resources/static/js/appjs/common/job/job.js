@@ -1,4 +1,4 @@
-var prefix = "/common/job";
+var prefix = ctxPath + "common/job";
 $(function () {
     load();
 });
@@ -117,10 +117,10 @@ function load() {
                         formatter: function (value, row, index) {
                             var e = '<a class="btn btn-success btn-xs" href="#" mce_href="#" title="点击开启" onclick="changeStatus(\''
                                 + row.id + '\',\'' + row.jobStatus
-                                + '\')"><i class="fa fa-hourglass-start"></i>开启</a> ';
+                                + '\')"><i class="fa fa-hourglass-start"></i><span style="margin-left: 5px;">开启</span></a> ';
                             var f = '<a class="btn btn-danger btn-xs" href="#" mce_href="#" title="点击关闭" onclick="changeStatus(\''
                                 + row.id + '\',\'' + row.jobStatus
-                                + '\')"><i class="fa fa-square-o">关闭</i></a> ';
+                                + '\')"><i class="fa fa-square-o"></i><span style="margin-left: 5px;">关闭</span></a> ';
                             if (row.jobStatus == 0) {
                                 return e;
                             } else {

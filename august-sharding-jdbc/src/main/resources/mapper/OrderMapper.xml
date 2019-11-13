@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.august.sharding.mapper.OrderMapper">
+    
+    <select id="findByUserId" resultType="com.august.sharding.domain.Order">
+      select * from t_order t
+      left join t_users s on t.user_id = s.id
+      WHERE t.user_id = #{userId} limit 5
+    </select>
+    
+    <select id="selectByUserId" resultType="com.august.sharding.domain.Order">
+        select * from t_order t where  t.user_id = #{userId} limit 5
+    </select>
+</mapper>

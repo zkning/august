@@ -1,5 +1,5 @@
 
-var prefix = "/activiti/salary";
+var prefix = ctxPath + "activiti/salary";
 $(function() {
 	load();
 });

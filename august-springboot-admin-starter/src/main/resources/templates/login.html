@@ -6,13 +6,13 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>BootDo</title>
-    <meta name="keywords" content="BootDo管理系统">
-    <meta name="description" content="BootDo管理系统">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
-    <link href="/css/animate.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/login.css" rel="stylesheet">
+    <meta name="keywords" content="理财营销活动管理系统">
+    <meta name="description" content="理财营销活动管理系统">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/login.css"  rel="stylesheet">
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
@@ -34,7 +34,7 @@
                 </div>
                 <div class="m-b"></div>
                 <h3>
-                    欢迎使用 <strong>BootDo管理系统</strong>
+                    欢迎使用 <strong>理财营销活动管理系统</strong>
                 </h3>
                 <ul class="m-b">
                     <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>
@@ -54,7 +54,7 @@
         <div class="col-sm-5">
             <form id="signupForm">
                 <h3 class="text-center">用户登录</h3>
-                <p class="m-t-md text-center">欢迎登录bootdo后台管理系统</p>
+                <p class="m-t-md text-center">欢迎登录理财营销活动管理系统</p>
                 <input type="text" name="username" class="form-control uname"
                        th:value="${username}"/>
                 <input type="password" name="password"
@@ -114,9 +114,8 @@
 <script src="/js/content.js?v=1.0.0" th:src="@{/js/content.js?v=1.0.0}"></script>
 
 <!-- jQuery Validation plugin javascript-->
-<script src="/js/ajax-util.js"></script>
-<script src="/js/plugins/validate/jquery.validate.min.js"
-        th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
+<script src="/js/ajax-util.js" th:src="@{/js/ajax-util.js}"></script>
+<script src="/js/plugins/validate/jquery.validate.min.js" th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
 <script src="/js/plugins/validate/messages_zh.min.js" th:src="@{/js/plugins/validate/messages_zh.min.js}"></script>
 <script src="/js/plugins/layer/layer.min.js" th:src="@{/js/plugins/layer/layer.min.js}"></script>
 <script type="text/javascript">
@@ -146,7 +145,7 @@
                     var index = layer.load(1, {
                         shade: [0.1, '#fff'] //0.1透明度的白色背景
                     });
-                    parent.location.href = '/index';
+                    parent.location.href = 'index';
                 } else {
                     layer.msg(r.msg);
                 }
@@ -185,7 +184,7 @@
 
     //获取验证码
     function getVerify(obj) {
-        obj.src = "/getVerify?" + Math.random();
+        obj.src = "getVerify?" + Math.random();
         console.log(obj)
     }
 </script>

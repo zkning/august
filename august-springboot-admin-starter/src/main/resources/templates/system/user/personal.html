@@ -173,7 +173,7 @@
                     <!--pwd_info-->
                     <div class="ibox-content tab-pane fade" id="pwd_info">
                         <form class="gg-form" role="form" id="modifyPwd">
-                            <a id="logout" class="hidden" href="/logout"></a>
+                            <a id="logout" class="hidden" href="/logout" th:href="@{/logout}"></a>
                             <input type="hidden" name ="userDO.userId" th:value="${user.userId}"/>
                             <div class="gg-formGroup">
                                 <div class="gg-formTitle">
@@ -218,6 +218,6 @@
     </div>
 </div>
 <div th:include="system/user/include :: footer"></div>
-<script type="text/javascript" src="/js/appjs/sys/user/personal.js"></script>
+<script type="text/javascript" src="/js/appjs/sys/user/personal.js" th:src="@{/js/appjs/sys/user/personal.js}"></script>
 </body>
 </html>

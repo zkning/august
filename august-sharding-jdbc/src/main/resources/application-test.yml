@@ -1,0 +1,53 @@
+###数据源名称，多数据源以逗号分隔
+sharding:
+  jdbc:
+    datasource:
+      names: ds0,ds1
+      # 数据源ds0
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/ubold?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+        username: root
+        password: 111111
+      # 数据源ds1
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/ubold1?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+        username: root
+        password: 111111
+    config:
+      sharding:
+        props:
+          sql.show: true
+        tables:
+          t_order:  #t_order表
+            key-generator-column-name: id  #主键
+            actual-data-nodes: rw${0}.t_order_${0..1}    #数据节点,均匀分布
+#            database-strategy:   #分库策略
+#              inline: #行表达式
+#                sharding-column: id        #列名称，多个列以逗号分隔
+#                algorithm-expression: ds${id % 2}    #按模运算分配
+            table-strategy:  #分表策略
+              inline: #行表达式
+                sharding-column: id
+                algorithm-expression: t_order_${id % 2}
+        master-slave-rules:   # 读写分离
+          rw0:
+            master-data-source-name: ds0
+            slave-data-source-names: ds1  # 一主多从
+            load-balance-algorithm-type: round_robin  # 负载均衡算法
+logging:
+  level:
+    org.springframework.web: INFO
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# swagger
+swagger.enabled: true
+spring:
+  main:
+    allow-bean-definition-overriding: true

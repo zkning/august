@@ -1,5 +1,4 @@
-
-var prefix = "/common/dict";
+var prefix = ctxPath + "common/dict";
 $(function() {
 	
 	//	var config = {
@@ -25,7 +24,7 @@ $(function() {
 function selectLoad() {
 	var html = "";
 	$.ajax({
-		url : '/common/dict/type',
+		url : ctxPath + 'common/dict/type',
 		success : function(data) {
 			//加载数据
 			for (var i = 0; i < data.length; i++) {
