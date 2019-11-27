@@ -25,17 +25,25 @@
 						<div class="form-group">
 							<label class="col-sm-3 control-label">包名：</label>
 							<div class="col-sm-8">
-								<input id="package" name="package" class="form-control"
-									type="text" th:value="${property.package}">
+								<div class="checkbox checkbox-inline">
+									<input id="package"  th:value="${property.package}"
+										   type="checkbox"
+										   name="package">
+									<label for="package"></label>
+								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-3 control-label">自动去掉表前缀：</label>
-							<div class="col-sm-2  i-checks icheckbox_square-green checked">
-								<input id="autoRemovePre" name="autoRemovePre"
-									class="form-control" type="checkbox"
-									value="true"
-									th:checked="${property.autoRemovePre}">
+							<div class="col-sm-8">
+								<div class="checkbox checkbox-inline">
+									<input id="autoRemovePre"  th:value="${property.package}"
+										   type="checkbox"
+										   name="autoRemovePre"
+										   value="true"
+										   th:checked="${property.autoRemovePre}">
+									<label for="autoRemovePre"></label>
+								</div>
 							</div>
 
 						</div>

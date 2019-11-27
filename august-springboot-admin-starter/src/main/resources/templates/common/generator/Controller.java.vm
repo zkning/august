@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ${package}.domain.${className}DO;
 import ${package}.service.${className}Service;
-import com.hzed.financing.activity.admin.common.utils.PageUtils;
-import com.hzed.financing.activity.admin.common.utils.Query;
-import com.hzed.financing.activity.admin.common.utils.R;
+import com.august.admin.common.utils.PageUtils;
+import com.august.admin.common.utils.Query;
+import com.august.admin.common.utils.R;
 
 /**
  * ${comments}

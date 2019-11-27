@@ -59,4 +59,17 @@ public class AppTest {
 //        List<Order> list = orderMapper.selectByUserId(1194190550462656513L);
         System.out.println(list.size());
     }
+
+
+    /**
+     * 同线程如有写入操作读取也从主库
+     */
+    @Test
+    public void rw(){
+        Users users = new Users();
+        users.setName("张三");
+        users.setTime(new Date());
+        usersMapper.insert(users);
+        List<Order> list = orderMapper.findByUserId(1194190550462656513L);
+    }
 }

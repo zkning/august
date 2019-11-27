@@ -4,6 +4,8 @@ server:
 #        max-threads: 1000
 #        min-spare-threads: 30
   port: 80
+  servlet:
+    context-path: /aadmin
 #    uri-encoding: utf-8
 #security:
 #  basic:
@@ -17,10 +19,6 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   profiles: 
     active: dev
-  servlet:
-    multipart:
-      max-file-size: 30Mb
-      max-request-size: 30Mb
   devtools:
     restart:
       enabled: true
@@ -30,7 +28,7 @@ spring:
       config: classpath:config/ehcache.xml
 
 mybatis-plus:
-  type-aliases-package: com.bootdo.**.domain
+  type-aliases-package: com.august.admin.**.domain
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
     #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
