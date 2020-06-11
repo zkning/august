@@ -3,13 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!--<parent>-->
-    <!--<groupId>com.august</groupId>-->
-    <!--<artifactId>fade-parent</artifactId>-->
-    <!--<version>1.0.0</version>-->
-    <!--<relativePath>./financing-activity-parent/pom.xml</relativePath>-->
-    <!--</parent>-->
-
     <name>august</name>
     <description>Demo project for august</description>
 
@@ -27,10 +20,8 @@
 
     <modules>
         <module>august-springboot-parent</module>
-        <module>august-springboot-website-starter</module>
-        <module>august-springboot-admin-starter</module>
-        <module>august-redisson-springboot-starter</module>
-        <module>august-sharding-jdbc</module>
-        <module>august-flowable</module>
+        <module>august-springboot-website</module>
+        <module>august-springboot-admin</module>
+        <module>august-redis</module>
     </modules>
 </project>
