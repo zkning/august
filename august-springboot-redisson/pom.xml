@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.august</groupId>
-    <artifactId>august-redisson-springboot-starter</artifactId>
+    <artifactId>august-springboot-redisson</artifactId>
     <version>1.0.0</version>
 
-    <name>august-redisson-springboot-starter</name>
+    <name>august-springboot-redisson</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>

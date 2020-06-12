@@ -27,10 +27,9 @@
 
     <modules>
         <module>august-springboot-parent</module>
-        <module>august-springboot-website-starter</module>
-        <module>august-springboot-admin-starter</module>
-        <module>august-redisson-springboot-starter</module>
-        <module>august-sharding-jdbc</module>
-        <module>august-flowable</module>
+        <module>august-springcloud-parent</module>
+        <module>august-springboot-website</module>
+        <module>august-springboot-admin</module>
+        <module>august-springboot-redisson</module>
     </modules>
 </project>
