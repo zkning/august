@@ -10,9 +10,6 @@
     <!--<relativePath>./financing-activity-parent/pom.xml</relativePath>-->
     <!--</parent>-->
 
-    <name>august</name>
-    <description>Demo project for august</description>
-
     <groupId>com.august</groupId>
     <artifactId>august</artifactId>
     <version>1.0.0</version>
@@ -31,5 +28,7 @@
         <module>august-springboot-website</module>
         <module>august-springboot-admin</module>
         <module>august-springboot-redisson</module>
+        <module>august-registry</module>
+        <module>august-gateway</module>
     </modules>
 </project>

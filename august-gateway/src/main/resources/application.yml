@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: august-gateway
+  profiles:
+    active: dev
+server:
+  port: 8762

@@ -1,0 +1,11 @@
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}
+  client:
+    registerWithEureka: false  # 该服务不会想enreka server注册
+    fetchRegistry: false # 该服务不向eureka server获取服务
+    service-url:
+          defaultZone: http://${eureka.instance.instance-id}:${server.port}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    enable-self-preservation: false # 自我保护机制
