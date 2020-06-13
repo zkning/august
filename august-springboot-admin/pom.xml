@@ -31,12 +31,6 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>com.august</groupId>-->
-        <!--<artifactId>august-springboot-website-starter</artifactId>-->
-        <!--<version>1.0.0</version>-->
-        <!--</dependency>-->
-
         <!--mapper-->
         <dependency>
             <groupId>com.alibaba</groupId>

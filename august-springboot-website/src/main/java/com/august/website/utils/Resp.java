@@ -13,6 +13,7 @@ import java.io.Serializable;
  */
 public class Resp<T> implements Serializable {
     private static final long serialVersionUID = 665474083431171685L;
+
     @ApiModelProperty(value = "响应码")
     private Integer code;
 
@@ -46,27 +47,27 @@ public class Resp<T> implements Serializable {
     }
 
     public static Resp SUCCESS() {
-        return new Resp(StatusCodeEnum.SUCCESS.code, StatusCodeEnum.SUCCESS.message, null);
+        return new Resp(StatusCodeEnum.OK.code, StatusCodeEnum.OK.message, null);
     }
 
     public static Resp SUCCESS(Object result) {
-        return new Resp(StatusCodeEnum.SUCCESS.code, StatusCodeEnum.SUCCESS.message, result);
+        return new Resp(StatusCodeEnum.OK.code, StatusCodeEnum.OK.message, result);
     }
 
     public static Resp FAILURE() {
-        return new Resp(StatusCodeEnum.SYSTEM_ERROR.code, StatusCodeEnum.SYSTEM_ERROR.message, null);
+        return new Resp(StatusCodeEnum.INTERNAL_SERVER_ERROR.code, StatusCodeEnum.INTERNAL_SERVER_ERROR.message, null);
     }
 
     public static Resp FAILURE(String message) {
-        return new Resp(StatusCodeEnum.SYSTEM_ERROR.code, message, null);
+        return new Resp(StatusCodeEnum.INTERNAL_SERVER_ERROR.code, message, null);
     }
 
     public static Resp FAILURE(Object result) {
-        return new Resp(StatusCodeEnum.SYSTEM_ERROR.code, StatusCodeEnum.SYSTEM_ERROR.message, result);
+        return new Resp(StatusCodeEnum.INTERNAL_SERVER_ERROR.code, StatusCodeEnum.INTERNAL_SERVER_ERROR.message, result);
     }
 
     public static Resp FAILURE(Exception ex) {
-        return new Resp(StatusCodeEnum.SYSTEM_ERROR.code, ex.getMessage(), null);
+        return new Resp(StatusCodeEnum.INTERNAL_SERVER_ERROR.code, ex.getMessage(), null);
     }
 
     public static Resp FAILURE(Integer code, String message) {
@@ -74,7 +75,7 @@ public class Resp<T> implements Serializable {
     }
 
     public static Resp SYSTEMEXCEPTION(Exception ex) {
-        return new Resp(StatusCodeEnum.SYSTEM_ERROR.code, StatusCodeEnum.SYSTEM_ERROR.message, ex);
+        return new Resp(StatusCodeEnum.INTERNAL_SERVER_ERROR.code, StatusCodeEnum.INTERNAL_SERVER_ERROR.message, ex);
     }
 
     public Integer getCode() {
@@ -105,7 +106,7 @@ public class Resp<T> implements Serializable {
      * 检查是否成功
      */
     public Boolean checkSuccess() {
-        return StatusCodeEnum.SUCCESS.code.equals(this.code);
+        return StatusCodeEnum.OK.code.equals(this.code);
     }
 
     /**

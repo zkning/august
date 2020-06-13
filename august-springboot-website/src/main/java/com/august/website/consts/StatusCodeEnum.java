@@ -2,49 +2,45 @@ package com.august.website.consts;
 
 /**
  * 状态码
+ * AAABB（20000）
+ * AAA 错误码
+ * BB 模块
+ * 前缀700为自定义错误码（70000）
+ *
  * @author zkning
  */
 public enum StatusCodeEnum {
-	
-	SUCCESS(0,"处理成功"),
-	
-	SYSTEM_ERROR(1,"处理失败"),
 
-	INVALID_REQUEST(2, "无效请求"),
-	
-	SERVICE_UNACCESSABLE(3,"服务器异常"),
-	
-	NEED_LOGIN(5,"未登录"),
-	
-	INSUFFICIENT_PRIVILEGES(6,"权限不足"),
+    OK(20000, "OK"),
 
-	SESSION_EXPIRED(7, "Session失效"),
-	
-	INVALID_ARGS(8,"参数异常"),
-	
-	USER_CALL_TIMEOUT(100,"用户请求超时"),
+    BAD_REQUEST(40000, "Bad Request"),
+    UNAUTHORIZED(40100, "Unauthorized"),
+    FORBIDDEN(40300, "Forbidden"),
+    NOT_FOUND(40400, "Not Found"),
+    Method_Not_Allowed(40500, "Method Not Allowed"),
+    REQUEST_TIMEOUT(40800, "Request Timeout"),
+    UNSUPPORTED_MEDIA_TYPE(41500, "Unsupported Media Type"),
 
-	USER_CALL_LIMITED(101, "用户请求受限"),
+    INTERNAL_SERVER_ERROR(50000, "Internal Server Error"),
+    SERVICE_UNAVAILABLE(50300, "Service Unavailable"),
+    GATEWAY_TIMEOUT(50400, "Gateway Timeout"),
 
-	SESSION_CALL_LIMITED(102, "Session请求受限"),
 
-	IO_EXCEPTION(103, "IO异常"),
-	
-	SYSTEM_DATA_ERROR(104,"数据异常");
-	
-	public Integer code;
-	public String message;
 
-	private StatusCodeEnum(Integer code, String message) {
-		this.code = code;
-		this.message = message;
-	}
+    ;
+    public Integer code;
+    public String message;
 
-	public Integer getCode() {
-		return code;
-	}
+    private StatusCodeEnum(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public Integer getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }
