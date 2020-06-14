@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 递归工具
  *
- * @author ingzuokun
+ * @author ningzuokun
  */
 public class RecursiveTools {
 

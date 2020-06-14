@@ -1,0 +1,7 @@
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+#          defaultZone: http://${eureka.instance.instance-id}/eureka/
+          defaultZone: http://eureka.didispace.com/eureka/

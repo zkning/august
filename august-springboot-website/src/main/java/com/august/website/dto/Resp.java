@@ -1,4 +1,4 @@
-package com.august.website.utils;
+package com.august.website.dto;
 
 import com.alibaba.fastjson.JSONObject;
 import com.august.website.consts.StatusCodeEnum;

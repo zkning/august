@@ -43,7 +43,8 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}    #在信息列表时显示主机名称
   client:
     service-url:
-      defaultZone: http://192.168.0.110:8761/eureka/
+#      defaultZone: http://192.168.0.110:8761/eureka/
+      defaultZone: http://eureka.didispace.com/eureka/
 
 logging:
   path: D:\www\wwwlogs
@@ -53,4 +54,4 @@ logging:
 info:
   app.name: august-gateway  # 注册中心status显示actuator信息
   websit: https://spring.io/projects/spring-cloud#learn
-debug: true
+debug: false

@@ -22,7 +22,6 @@ import java.util.List;
  * swagger 配置
  */
 @Configuration
-@EnableSwagger2
 @ConditionalOnProperty(name = "swagger.enabled", havingValue = "true", matchIfMissing = true)
 @Profile({"dev","test","inte"})
 public class SwaggerConfig {
@@ -42,7 +41,7 @@ public class SwaggerConfig {
 
                 //默认值
                 .defaultValue("")
-                .description("授权TOKEN")
+                .description("WEB_TOKEN")
 
                 //指定参数值的类型
                 .modelRef(new ModelRef("String"))

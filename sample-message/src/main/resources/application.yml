@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: sample-message
+  profiles:
+    active: dev
+server:
+  port: 8088
+

@@ -30,5 +30,7 @@
         <module>august-springboot-redisson</module>
         <module>august-registry</module>
         <module>august-gateway</module>
+        <module>sample-staff</module>
+        <module>sample-message</module>
     </modules>
 </project>

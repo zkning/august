@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: sample-staff
+  profiles:
+    active: dev
+server:
+  port: 8089
+

@@ -1,4 +1,4 @@
-package com.august.website.utils;
+package com.august.website.dto;
 
 import lombok.Data;
 
