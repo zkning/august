@@ -5,3 +5,33 @@ eureka:
     service-url:
 #          defaultZone: http://${eureka.instance.instance-id}/eureka/
            defaultZone: http://eureka.didispace.com/eureka/
+
+# feign hystrix enabled
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+#    send: # commandkey默认为方法名
+    default: # commandkey默认为方法名
+      execution:
+        isolation:
+          thread:
+            timeoutinMilliseconds: 10
+
+# feign ribbon
+message-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule # 负载均衡策略
+    ConnectTimeout: 500
+    ReadTimeout: 2000
+    OkToRetryOnAllOperations: true
+    MaxAutoRetriesNextServer: 2 # 尝试更换两次实例进行重试
+    MaxAutoRetries: 1           # 尝试访问首选实例1次
+
+
+# feign loggin
+logging:
+  level:
+    com.august.staff.client: debug
