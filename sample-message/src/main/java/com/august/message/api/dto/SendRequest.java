@@ -1,4 +1,4 @@
-package com.august.message.rmi.dto;
+package com.august.message.api.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

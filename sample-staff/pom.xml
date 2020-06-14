@@ -39,7 +39,7 @@
             <groupId>com.august</groupId>
             <artifactId>sample-message</artifactId>
             <version>1.0.0</version>
-            <classifier>rmi</classifier>
+            <classifier>api</classifier>
         </dependency>
     </dependencies>
 </project>

@@ -17,20 +17,4 @@ import org.springframework.web.client.RestTemplate;
 public class MessageServiceImpl implements MessageService {
 
     public static final String url = "www.baidu.com";
-
-    @Autowired
-    RestTemplate restTemplate;
-
-    @HystrixCommand(fallbackMethod = "sendBaiduFallback")
-    @Override
-    public Resp sendBaidu() {
-        ResponseEntity re = restTemplate.getForEntity(url, Object.class);
-        return Resp.SUCCESS();
-    }
-
-
-    public Resp sendBaiduFallback() {
-        log.info("send baidu faill {}", System.currentTimeMillis());
-        return null;
-    }
 }

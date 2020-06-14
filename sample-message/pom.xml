@@ -45,10 +45,10 @@
                         </goals>
                         <configuration>
 
-                            <!--RMI-->
-                            <classifier>rmi</classifier>
+                            <!--API-->
+                            <classifier>api</classifier>
                             <includes>
-                                <include>**/rmi/**</include>
+                                <include>**/api/**</include>
                             </includes>
                         </configuration>
                     </execution>
