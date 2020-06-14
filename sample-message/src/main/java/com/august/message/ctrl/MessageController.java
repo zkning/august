@@ -24,7 +24,7 @@ public class MessageController implements MessageApi {
 
     @Override
     public SendResp send(SendRequest sendRequest) {
-        log.info(sendRequest.toString());
+        log.info("消息接口被调用,请求参数:{}", sendRequest.toString());
         SendResp sendResp = new SendResp();
         sendResp.setSucces(1);
         sendResp.setSource("短信");

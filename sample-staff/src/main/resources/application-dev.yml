@@ -13,7 +13,7 @@ feign:
 
 hystrix:
   command:
-#    send: # commandkey默认为方法名
+#    registry: # commandkey默认为方法名
     default: # commandkey默认为方法名
       execution:
         isolation:
@@ -31,7 +31,7 @@ message-service:
     MaxAutoRetries: 1           # 尝试访问首选实例1次
 
 
-# feign loggin
+# feign loggin debug
 logging:
   level:
-    com.august.staff.client: debug
+    com.august.staff.rmi: debug
