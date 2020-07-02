@@ -1,6 +1,6 @@
 spring:
   application:
-    name: august-gateway
+    name: ning-gateway
   profiles:
     active: dev
 server:
