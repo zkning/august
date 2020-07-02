@@ -10,8 +10,8 @@
     <!--<relativePath>./financing-activity-parent/pom.xml</relativePath>-->
     <!--</parent>-->
 
-    <groupId>com.august</groupId>
-    <artifactId>august</artifactId>
+    <groupId>com.ning</groupId>
+    <artifactId>ning</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
@@ -23,13 +23,13 @@
     </properties>
 
     <modules>
-        <module>august-springboot-parent</module>
-        <module>august-springcloud-parent</module>
-        <module>august-springboot-website</module>
+        <module>ning-springboot-parent</module>
+        <module>ning-springcloud-parent</module>
+        <module>ning-springboot-website</module>
         <module>august-springboot-admin</module>
-        <module>august-springboot-redisson</module>
-        <module>august-registry</module>
-        <module>august-gateway</module>
+        <module>ning-springboot-redisson</module>
+        <module>ning-registry</module>
+        <module>ning-gateway</module>
         <module>sample-staff</module>
         <module>sample-message</module>
     </modules>

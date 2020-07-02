@@ -3,14 +3,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>august-springboot-parent</artifactId>
-        <groupId>com.august</groupId>
+        <artifactId>ning-springboot-parent</artifactId>
+        <groupId>com.ning</groupId>
         <version>1.0.0</version>
-        <relativePath>../august-springboot-parent/pom.xml</relativePath>
+        <relativePath>../ning-springboot-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.august</groupId>
+    <groupId>com.ning</groupId>
     <artifactId>august-springboot-admin</artifactId>
     <version>1.0.0</version>
 

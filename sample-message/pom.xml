@@ -3,10 +3,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>august-springcloud-parent</artifactId>
-        <groupId>com.august</groupId>
+        <artifactId>ning-springcloud-parent</artifactId>
+        <groupId>com.ning</groupId>
         <version>1.0.0</version>
-        <relativePath>../august-springcloud-parent/pom.xml</relativePath>
+        <relativePath>../ning-springcloud-parent/pom.xml</relativePath>
     </parent>
     <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
@@ -26,7 +26,7 @@
 
         <dependency>
             <groupId>com.august</groupId>
-            <artifactId>august-springboot-website</artifactId>
+            <artifactId>ning-springboot-website</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
