@@ -1,4 +1,4 @@
-package com.ning.staff.rmi;
+package com.ning.staff.client;
 
 import com.august.message.api.MessageApi;
 import com.august.message.api.dto.SendRequest;
@@ -13,8 +13,8 @@ import javax.validation.Valid;
 /**
  * Created by zkning on 2020/6/14.
  */
-@FeignClient(name = "sample-message", path = "message", fallback = MessageRmi.MessageRmiFallback.class)
-public interface MessageRmi extends MessageApi {
+@FeignClient(name = "sample-message", path = "api", fallback = MessageClient.MessageClientFallback.class)
+public interface MessageClient extends MessageApi {
 
 
     /**
@@ -24,7 +24,7 @@ public interface MessageRmi extends MessageApi {
      */
     @Slf4j
     @Component
-    class MessageRmiFallback implements MessageRmi {
+    class MessageClientFallback implements MessageClient {
 
         @Override
         public SendResp send(@RequestBody @Valid SendRequest sendRequest) {

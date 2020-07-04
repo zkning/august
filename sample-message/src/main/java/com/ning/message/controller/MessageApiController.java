@@ -1,4 +1,4 @@
-package com.ning.message.ctrl;
+package com.ning.message.controller;
 
 import com.ning.message.api.MessageApi;
 import com.ning.message.api.dto.SendRequest;
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by lenovo on 2020/6/14.
  */
-@Api(description = "消息服务")
+@Api(value = "消息服务", description = "内部调用", hidden = true)
 @Slf4j
 @RestController
-@RequestMapping("/message")
-public class MessageController implements MessageApi {
+@RequestMapping("/api")
+public class MessageApiController implements MessageApi {
 
     @Autowired
     MessageService messageService;

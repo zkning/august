@@ -1,8 +1,8 @@
-package com.ning.staff.ctrl;
+package com.ning.staff.controller;
 
 import com.august.message.api.dto.SendRequest;
 import com.august.message.api.dto.SendResp;
-import com.ning.staff.rmi.MessageRmi;
+import com.ning.staff.client.MessageClient;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StaffController {
 
     @Autowired
-    MessageRmi messageRmi;
+    MessageClient messageClient;
 
     @ApiOperation(value = "注册")
     @GetMapping("/registry")
@@ -29,7 +29,7 @@ public class StaffController {
         SendRequest sendRequest = new SendRequest();
         sendRequest.setMsg("hello word!");
         sendRequest.setUsername("admnistrator");
-        SendResp sendResp = messageRmi.send(sendRequest);
+        SendResp sendResp = messageClient.send(sendRequest);
         return sendResp;
     }
 }
