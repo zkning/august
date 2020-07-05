@@ -29,6 +29,7 @@ public class MessageApiController implements MessageApi {
         sendResp.setSucces(1);
         sendResp.setSource("短信");
         sendResp.setMsg(sendRequest.getMsg());
+        messageService.sendDXL(sendRequest.getMsg());
         return sendResp;
     }
 }

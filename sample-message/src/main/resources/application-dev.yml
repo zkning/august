@@ -5,3 +5,10 @@ eureka:
     service-url:
 #          defaultZone: http://${eureka.instance.instance-id}/eureka/
           defaultZone: http://eureka.didispace.com/eureka/
+
+spring:
+  rabbitmq:
+    host: 192.168.0.108
+    port: 5672
+    username: guest
+    password: guest
