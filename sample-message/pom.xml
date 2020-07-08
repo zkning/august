@@ -37,8 +37,9 @@
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>com.ning</groupId>
+            <artifactId>ning-springboot-redisson</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
