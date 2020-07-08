@@ -1,6 +1,6 @@
 package com.ning.message.service.impl;
 
-import com.august.website.dto.Resp;
+import com.ning.website.dto.Resp;
 import com.ning.message.service.MessageService;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.MessageProperties;

@@ -1,7 +1,7 @@
 package com.ning.staff.controller;
 
-import com.august.message.api.dto.SendRequest;
-import com.august.message.api.dto.SendResp;
+import com.ning.message.api.dto.SendRequest;
+import com.ning.message.api.dto.SendResp;
 import com.ning.staff.client.MessageClient;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

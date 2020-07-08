@@ -1,8 +1,8 @@
 package com.ning.staff.client;
 
-import com.august.message.api.MessageApi;
-import com.august.message.api.dto.SendRequest;
-import com.august.message.api.dto.SendResp;
+import com.ning.message.api.MessageApi;
+import com.ning.message.api.dto.SendRequest;
+import com.ning.message.api.dto.SendResp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;

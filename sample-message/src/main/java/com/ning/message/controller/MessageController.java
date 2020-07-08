@@ -1,6 +1,6 @@
 package com.ning.message.controller;
 
-import com.august.website.dto.Resp;
+import com.ning.website.dto.Resp;
 import com.ning.message.api.dto.SendRequest;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
